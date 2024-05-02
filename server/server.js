@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { config } from "dotenv";
 
 import { gameRouter } from "./routers/gameRouter.js";
@@ -14,6 +15,7 @@ const app = express();
 //Hittade inte den här pathen automatiskt, kanske är något fel
 app.use(express.static("../client/build"));
 app.use(express.json());
+app.use(cors());
 
 //Mount routers
 app.use("/api/games", gameRouter);

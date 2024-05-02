@@ -39,10 +39,10 @@ export const findReview = async (req, res) => {
 
 export const addReview = async (req, res) => {
     try {
-        const {gameId, username, rating, reviewText, createdAt, violence, suggestedAge} = req.body;
+        const {gameId, username, rating, reviewText, violence, suggestedAge} = req.body;
 
         //Make sure strings and numbers fields are not undefined
-        if (!gameId || !username || !rating || !reviewText || !createdAt || !suggestedAge) {
+        if (!gameId || !username || !rating || !reviewText || !suggestedAge) {
             return res.status(400).json({message: "Missing required fields in the request body."});
         }
 
@@ -64,7 +64,7 @@ export const addReview = async (req, res) => {
             username: username,
             rating: rating,
             reviewText: reviewText,
-            createdAt: createdAt,
+            createdAt: new Date(),
             violence: violence,
             suggestedAge: suggestedAge
         });

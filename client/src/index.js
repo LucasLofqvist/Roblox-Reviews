@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './components/App'
 
-// Define a functional component
-function SimpleComponent() {
-return (
-    <div>
-        <h1>Hello, React!</h1>
-        <p>This is a simple component.</p>
-    </div>
-);
-}
-
-// Render the component
-ReactDOM.render(<SimpleComponent />, document.getElementById('root'));
+ReactDOM.render(
+    <Router>
+        <App />
+    </Router>,
+    document.getElementById('root')
+)

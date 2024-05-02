@@ -37,26 +37,29 @@ export const findGame = async (req, res) => {
 
 //Add new game
 export const addGame = async (req, res) => {
-    const{title, description, imageData, created} = req.body;
+    const{title, description, thumbnailUrl, created, genre, gameUrl} = req.body;
 
-    if(!title || !description || !created) {
+    if(!title || !description || !created || !genre || !thumbnailUrl || !gameUrl) {
         return res.status(400).json({message: "Missing required fields in the body."});
     }
 
-    //binaryData will be null if no imageData is recieved in the post request.
-    const binaryData = null;
+    //Accepts image references from Roblox.com
+    if(typeof thumbnailUrl === "string") {
+        const validUrlEnding = thumbnailUrl.endsWith("/Webp");
 
-    if (imageData){
-        //Convert imagedata to buffer
-        binaryData = Buffer.from(imageData, "base64");
+        if(!validUrlEnding) {
+            return res.status(400).json({message: "Invalid thumbnail URL! Must end with /Webp"});
+        }
     }
 
     try {
         const newGame = new Game({
             title: title,
             description: description,
-            imageData: binaryData,
-            created: created
+            thumbnailUrl: thumbnailUrl,
+            created: created,
+            genre: genre,
+            gameUrl: gameUrl
         });
 
         await newGame.save();
@@ -64,6 +67,6 @@ export const addGame = async (req, res) => {
         res.status(201).json({message: "Game succsessfully added!", data: newGame});
 
     } catch (error) {
-        res.status(500).json({message: "Something went wrong!", error: error.errmsg});
+        res.status(500).json({message: "Something went wrong!", error: error.message});
     }
 };

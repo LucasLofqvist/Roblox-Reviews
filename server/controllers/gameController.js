@@ -15,7 +15,6 @@ export const allGames = async (req, res) => {
 export const findGame = async (req, res) => {
     try {
         const gameTitle = req.params.title;
-        console.log(gameTitle);
 
         //Might be unessesary since this function will only be used if there is a parameter in the request.
         if(!gameTitle) {

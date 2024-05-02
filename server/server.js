@@ -4,6 +4,7 @@ import { config } from "dotenv";
 
 import { gameRouter } from "./routers/gameRouter.js";
 import { reviewRouter } from "./routers/reviewRouter.js";
+import { userRouter } from "./routers/userRouter.js";
 
 import { connectToMongo } from "./dbConnection.js";
 
@@ -20,6 +21,7 @@ app.use(cors());
 //Mount routers
 app.use("/api/games", gameRouter);
 app.use("/api/reviews", reviewRouter);
+app.use("/api/users", userRouter);
 
 //Connect to database
 connectToMongo();

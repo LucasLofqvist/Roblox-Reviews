@@ -1,0 +1,134 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif; /* Ensures the font is something clean and simple */
+    background-color: #f4f4f4; /* Light grey background */
+    margin: 0;
+    padding: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box; /* Apply universally */
+  }
+
+/* Header styles */
+header {
+    background-color: #333; /* Dark background for the header */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Padding around the content */
+    display: flex;
+    justify-content: space-between; /* Space between logo and navigation */
+    align-items: center;
+}
+
+header a {
+    color: #fff; /* Ensures text links are white */
+    text-decoration: none; /* No underlines on the links */
+    margin-right: 15px; /* Spacing between links */
+}
+
+header a:hover {
+    color: #c0c0c0; /* Light grey for hover state */
+}
+
+/* Search form styling */
+.search-container {
+    padding: 20px;
+    display: flex;
+    justify-content: left; /* Centering the search box horizontally */
+    margin: 20px 0;
+}
+
+.search-input {
+    padding: 8px;
+    width: 300px; /* Fixed width for the search input */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px 0 0 4px; /* Rounded corners on the left side */
+}
+
+.search-button {
+    padding: 8px 16px;
+    background-color: #007BFF; /* Bootstrap blue */
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0; /* Rounded corners on the right side */
+}
+
+.search-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Game list styles */
+.game-container {
+    padding: 20px;
+    background-color: white; /* White background for each game */
+    border: 1px solid #ddd; /* Light border for the game containers */
+    margin: 10px 20px;
+    border-radius: 8px; /* Rounded corners for the game containers */
+}
+
+
+.game-title {
+    font-size: 18px;
+    color: #333; /* Dark grey color for the game title */
+}
+
+.game-description {
+    color: #666; /* Medium grey for the text */
+}
+
+.game-info {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.games-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Changed from space-between for more consistent spacing */
+    margin: 20px 0; /* Assuming no additional horizontal margin is affecting width */
+    width: 100%; /* Ensure the container takes full available width */
+}
+
+.game-card {
+    flex: 1 1 calc(33.33% - 20px); /* Adjust the flex-basis to account for any margins */
+    margin: 10px;  /* Ensure this margin is accounted for in the flex-basis calculation */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+/* Image container for controlling image size */
+.game-image-wrapper {
+    width: 100%; /* Full width of the card */
+    height: 200px; /* Fixed height for images */
+    overflow: hidden; /* Hide parts of the image that exceed dimensions */
+    display: flex;
+    align-items: center; /* Center align the image vertically */
+    justify-content: center; /* Center align the image horizontally */
+}
+
+.game-image {
+    width: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Maximum width of the image */
+    max-height: 100%; /* Maximum height in the wrapper */
+}
+
+.game-link {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+.game-title {
+    margin-top: 10px;
+}
+
+.game-stats {
+    margin-top: 10px;
+}

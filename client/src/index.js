@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./components/App"; // Adjust based on your file naming
+import "./index.css"; // Ensure this path is correct
 
-// Define a functional component
-function SimpleComponent() {
-return (
-    <div>
-        <h1>Hello, React!</h1>
-        <p>This is a simple component.</p>
-    </div>
-);
+const rootElement = document.getElementById("root");
+if (rootElement) {
+    ReactDOM.createRoot(rootElement).render(
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    );
+} else {
+    console.error("Failed to find the root element");
 }
-
-// Render the component
-ReactDOM.render(<SimpleComponent />, document.getElementById('root'));

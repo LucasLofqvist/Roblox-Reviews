@@ -1,5 +1,6 @@
 import Review from "../models/reviewModel.js";
 import Game from "../models/gameModel.js";
+import User from "../models/userModel.js";
 
 //Find all reviews
 export const allReviews = async (req, res) => {
@@ -41,8 +42,10 @@ export const addReview = async (req, res) => {
     try {
         const {gameId, username, rating, reviewText, violence, suggestedAge} = req.body;
 
+        console.log(gameId, username, typeof rating, reviewText, violence, suggestedAge);
+
         //Make sure strings and numbers fields are not undefined
-        if (!gameId || !username || !rating || !reviewText || !suggestedAge) {
+        if (!gameId || !username || typeof rating !== "number" || !reviewText || !suggestedAge) {
             return res.status(400).json({message: "Missing required fields in the request body."});
         }
 
@@ -57,7 +60,13 @@ export const addReview = async (req, res) => {
             return res.status(400).json({message: "The gameId referenced by the review does not exist."});
         }
 
-        //Need to implement a check that makes sure there is a user with given username
+        const userExist = await User.findOne({username: username});
+        if (!userExist) {
+            return res.status(400).json({message: "The username referenced by the review does not exist."});
+        }
+
+        console.log(1, username);
+        console.log(2, gameId);
 
         const newReview = new Review({
             gameId: gameId,

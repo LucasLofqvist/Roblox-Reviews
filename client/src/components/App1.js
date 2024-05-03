@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from './Header'
+import Header from './Header1'
 import Layout from './Layout';
-import Footer from './Footer';
+import Footer from './Footer1';
 
 
 
-const App = () => {
+const App1 = () => {
     return (
         <div>
             <Layout>
@@ -14,4 +14,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default App1;

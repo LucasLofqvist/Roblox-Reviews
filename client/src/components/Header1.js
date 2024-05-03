@@ -1,7 +1,7 @@
 import React from 'react';
 import PSicon from '../img/pfIcon.png'
 
-const Header = () => {
+const Header1 = () => {
     return (
         <header>
             <a href="/" className="homepage">
@@ -21,4 +21,4 @@ const Header = () => {
     );
 }
 
-export default Header;
+export default Header1;

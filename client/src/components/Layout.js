@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import Header from './Header1';
+import Footer from './Footer1';
 import NavBar from './Navbar';
-import '../index.css';
+import '../index1.css';
 import '../index2.css';
 
 const Layout = ({ children }) => {

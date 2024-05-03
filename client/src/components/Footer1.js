@@ -1,7 +1,7 @@
 // work in progress
 import React from 'react'
 
-const Footer = () => {
+const Footer1 = () => {
     return (
         <footer>
             <hr />
@@ -20,4 +20,4 @@ const Footer = () => {
     );
 }
 
-export default Footer;
+export default Footer1;

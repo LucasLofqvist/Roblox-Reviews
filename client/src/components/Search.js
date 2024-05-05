@@ -6,6 +6,7 @@ const Search = ({ onSearch }) => {
     const handleSearch = (event) => {
         event.preventDefault();
         onSearch(searchTerm);
+        setSearchTerm('');
     };
 
     return (
@@ -23,3 +24,6 @@ const Search = ({ onSearch }) => {
 };
 
 export default Search;
+
+
+

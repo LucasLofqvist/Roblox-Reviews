@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App"; // Adjust based on your file naming
 import "./index.css"; // Ensure this path is correct
+import "./index1.css";
+import "./index2.css";
 
 const rootElement = document.getElementById("root");
 if (rootElement) {

@@ -1,0 +1,197 @@
+@media (max-width: 768px) {
+    .game-details .game-details-image {
+        max-width: 95%; /* Allows the image to be slightly larger on smaller screens */
+        margin: 10px auto; /* Reduces the margin on smaller devices */
+    }
+}
+
+
+/* Enhance text readability and spacing */
+.game-description, .game-info, .review-text {
+    padding: 0 10px;
+    text-align: justify;
+}
+
+.game-stats, .review-details {
+    text-align: center;
+    padding: 5px 0;
+}
+
+/* Game list styles */
+.game-container {
+    padding: 20px;
+    background-color: white; /* White background for each game */
+    border: 1px solid #ddd; /* Light border for the game containers */
+    margin: 10px 20px;
+    border-radius: 8px; /* Rounded corners for the game containers */
+}
+
+.game-title {
+    font-size: 18px;
+    color: #333; /* Dark grey color for the game title */
+}
+
+.game-description {
+    color: #666; /* Medium grey for the text */
+}
+
+.game-info {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.games-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Changed from space-between for more consistent spacing */
+    margin: 20px 0; /* Assuming no additional horizontal margin is affecting width */
+    width: 100%; /* Ensure the container takes full available width */
+}
+
+.game-card {
+    flex: 1 1 calc(33.33% - 20px); /* Adjust the flex-basis to account for any margins */
+    margin: 10px;  /* Ensure this margin is accounted for in the flex-basis calculation */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+.game-image-wrapper {
+    width: 100%; /* Full width of the card */
+    height: 200px; /* Fixed height for images */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-image {
+    width: 100%; /* Ensures width is always consistent */
+    height: 100%; /* Ensures height is always consistent */
+    object-fit: contain; /* Ensures the image covers the area, may crop */
+}
+
+.game-link {
+    color: black;
+    text-decoration: none;
+}
+
+
+.game-title {
+    margin-top: 10px;
+}
+
+.game-stats {
+    margin-top: 10px;
+}
+
+
+.game-details-image-wrapper {
+    display: flex;
+    justify-content: left; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+    overflow: hidden;
+    padding: 20px;
+}
+
+.game-details-image {
+    max-width: 100%; /* Full width but no more */
+    max-height: 500px; /* Maximum height without distortion */
+    object-fit: cover; /* Cover the available space */
+}
+
+/* game-reviews layout */
+.review-card {
+    background-color: #ffffff;  /* Light background for the card */
+    border: 1px solid #e0e0e0;  /* Light grey border */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* Subtle shadow for depth */
+    padding: 20px;  /* Spacing inside the card */
+    margin-bottom: 20px;  /* Space between each card */
+    border-radius: 8px;  /* Rounded corners */
+}
+
+.review-card h4 {
+    color: #333;  /* Dark color for contrast */
+    font-size: 18px;  /* Larger text for the reviewer's name */
+    margin-bottom: 5px;  /* Spacing after the name */
+}
+
+.review-card p {
+    color: #666;  /* Medium grey for the review text */
+    font-size: 14px;  /* Readable text size */
+    line-height: 1.6;  /* Spacing between lines for readability */
+}
+
+.review-rating {
+    font-weight: bold;
+    color: #0056b3;  /* Stylish color for ratings */
+}
+
+.review-content {
+    display: flex;
+    flex-direction: column;  /* Stack elements vertically */
+}
+
+.review-details {
+    display: flex;
+    /* Space elements like rating and suggested age */
+    margin-top: 10px;  /* Extra space from main review text */
+}
+
+.rating-stars {
+    display: inline-block;
+    color: #f5a623;  /* Gold color for stars */
+}
+
+.rating-stars::before {
+    content: '★★★★★';
+    opacity: 0.5;  /* Dim the full star background */
+}
+
+.rating-stars::after {
+    content: '★★★★★';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(20% * var(--rating));  /* Adjust width based on rating out of 5 */
+    overflow: hidden;
+    opacity: 1;  /* Full color for actual rating */
+}
+
+
+.review-rating {
+    font-weight: bold;
+    color: #0056b3;  /* Stylish color for ratings */
+}
+
+/* Styles for the violence indicator */
+.violence-indicator {
+    font-weight: bold;
+    padding: 3px 6px;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.violence-yes {
+    background-color: #c0392b; /* Red for violence present */
+}
+
+.violence-no {
+    background-color: #27ae60; /* Green for no violence */
+}
+
+/* Styles for the suggested age */
+.suggested-age {
+    background-color: #ecf0f1; /* Light grey background */
+    padding: 3px 6px;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+    color: #2c3e50; /* Dark text for readability */
+}

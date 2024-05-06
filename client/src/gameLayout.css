@@ -1,10 +1,37 @@
-@media (max-width: 768px) {
-    .game-details .game-details-image {
-        max-width: 95%; /* Allows the image to be slightly larger on smaller screens */
-        margin: 10px auto; /* Reduces the margin on smaller devices */
+@media (max-width: 992px) {
+    .games-list {
+        padding: 0 20px; /* Smaller padding for smaller screens */
+        width: calc(100% - 40px); /* Adjust width to account for padding */
+    }
+
+    .game-card {
+        flex: 1 1 calc(50% - 40px); /* Adjust for 2 columns on medium screens */
     }
 }
 
+@media (max-width: 768px) {
+    .games-list {
+        padding: 0 10px; /* Even smaller padding for very small screens */
+        width: calc(100% - 20px); /* Adjust width to account for padding */
+    }
+
+    .game-card {
+        flex: 1 1 100%; /* Full width cards on very small screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .game-details {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .go-back-button {
+        margin-left: 20px;
+    }
+}
 
 /* Enhance text readability and spacing */
 .game-description, .game-info, .review-text {
@@ -43,13 +70,14 @@
 .games-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; /* Changed from space-between for more consistent spacing */
-    margin: 20px 0; /* Assuming no additional horizontal margin is affecting width */
-    width: 100%; /* Ensure the container takes full available width */
+    justify-content: space-between; /* Changed from space-between for more consistent spacing */
+    margin: 50px; /* Assuming no additional horizontal margin is affecting width */
+    padding:0, 50px;
+    width: calc(100% - 100px); /* Ensure the container takes full available width */
 }
 
 .game-card {
-    flex: 1 1 calc(33.33% - 20px); /* Adjust the flex-basis to account for any margins */
+    flex: 1 1 calc(25% - 40px); /* Adjust the flex-basis to account for any margins */
     margin: 10px;  /* Ensure this margin is accounted for in the flex-basis calculation */
     display: flex;
     flex-direction: column;
@@ -70,9 +98,9 @@
 }
 
 .game-image {
-    width: 100%; /* Ensures width is always consistent */
-    height: 100%; /* Ensures height is always consistent */
-    object-fit: contain; /* Ensures the image covers the area, may crop */
+    width: 376px; /* Ensures width is always consistent */
+    height: 210px; /* Ensures height is always consistent */
+    object-fit: fit; /* Ensures the image covers the area, may crop */
 }
 
 .game-link {
@@ -83,25 +111,34 @@
 
 .game-title {
     margin-top: 10px;
+    
 }
 
 .game-stats {
     margin-top: 10px;
 }
 
+.game-details {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.go-back-button{
+    margin-left: 50px;
+}
 
 .game-details-image-wrapper {
     display: flex;
     justify-content: left; /* Center image horizontally */
     align-items: center; /* Center image vertically */
     overflow: hidden;
-    padding: 20px;
+    padding: 0px;
 }
 
 .game-details-image {
-    max-width: 100%; /* Full width but no more */
-    max-height: 500px; /* Maximum height without distortion */
-    object-fit: cover; /* Cover the available space */
+    width: 500px; /* Full width but no more */
+    height: 300px; /* Maximum height without distortion */
+    object-fit: fit; /* Cover the available space */
 }
 
 /* game-reviews layout */
@@ -143,30 +180,36 @@
 }
 
 .rating-stars {
+    position: relative;
     display: inline-block;
-    color: #f5a623;  /* Gold color for stars */
+    font-size: 18px;
+    width: 110px; 
+    height: 18px;
+    line-height: 1;
+    white-space: nowrap;
 }
 
-.rating-stars::before {
-    content: '★★★★★';
-    opacity: 0.5;  /* Dim the full star background */
-}
-
+.rating-stars::before,
 .rating-stars::after {
-    content: '★★★★★';
+    content: '★★★★★★★★★★';
     position: absolute;
     top: 0;
     left: 0;
-    width: calc(20% * var(--rating));  /* Adjust width based on rating out of 5 */
+    height: 100%;
+}
+
+.rating-stars::before {
+    opacity: 0.5;
+    color: #ccc;
+    width: 100%; 
+}
+
+.rating-stars::after {
+    color: #f5a623;
+    width: var(--rating); 
     overflow: hidden;
-    opacity: 1;  /* Full color for actual rating */
 }
 
-
-.review-rating {
-    font-weight: bold;
-    color: #0056b3;  /* Stylish color for ratings */
-}
 
 /* Styles for the violence indicator */
 .violence-indicator {
@@ -193,5 +236,5 @@
     border-radius: 5px;
     display: inline-block;
     font-weight: bold;
-    color: #2c3e50; /* Dark text for readability */
+    color: #ec0f0f; /* Dark text for readability */
 }

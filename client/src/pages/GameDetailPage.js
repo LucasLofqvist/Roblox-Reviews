@@ -8,7 +8,7 @@ const GameDetailPage = ({ gameTitle }) => {
 
     return (
         <div>
-            <button onClick={() => navigate(-1)} style={{ margin: "1rem" }}>Go Back</button>
+            <button className='go-back-button' onClick={() => navigate(-1)} >Go Back</button>
             <GameDetails gameTitle={gameTitle} />
         </div>
     );

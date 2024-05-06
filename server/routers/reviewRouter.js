@@ -1,9 +1,11 @@
 import express from "express";
-import { addReview, allReviews, findReview } from "../controllers/reviewController.js";
+import { addReview, allReviews, findGameReviews, findReview } from "../controllers/reviewController.js";
 
 export const reviewRouter = express.Router();
 
 reviewRouter.get("/", allReviews);
+
+reviewRouter.get("/:gameId", findGameReviews);
 
 reviewRouter.get("/:gameId/:username", findReview);
 

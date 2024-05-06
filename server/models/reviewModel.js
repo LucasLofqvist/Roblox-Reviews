@@ -12,6 +12,6 @@ const reviewSchema = new mongoose.Schema({
     suggestedAge: {type: String, required: true, enum: ["All", "9+", "13+", "17+"]}
 }, {collection: "reviews"});
 
-reviewSchema.index({gameId: 1, userName: 1}, {unique: true});
+reviewSchema.index({gameId: 1, username: 1}, {unique: true});
 
 export default mongoose.model("Reviews", reviewSchema);

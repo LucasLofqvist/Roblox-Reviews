@@ -15,8 +15,9 @@ const GameDetails = () => {
         const fetchData = async () => {
             try {
                 const gameData = await FetchRouter(`api/games/${gameId}`);
+                const _id = gameData._id
                 setGame(gameData);
-                const reviewsData = await FetchRouter(`api/reviews/${gameId}`);
+                const reviewsData = await FetchRouter(`api/reviews/${_id}`);
                 setReviews(reviewsData);
             } catch (err) {
                 setError(err.message);

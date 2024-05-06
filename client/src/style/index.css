@@ -10,53 +10,53 @@ body {
     box-sizing: border-box; /* Apply universally */
   }
 
-/* Header styles */
-header {
-    background-color: #333; /* Dark background for the header */
-    color: #fff; /* White text color */
-    padding: 10px 20px; /* Padding around the content */
+
+/* header {
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px 20px; 
     display: flex;
-    justify-content: space-between; /* Space between logo and navigation */
+    justify-content: space-between; 
     align-items: center;
 }
 
 header a {
-    color: #fff; /* Ensures text links are white */
-    text-decoration: none; /* No underlines on the links */
-    margin-right: 15px; /* Spacing between links */
+    color: #fff; 
+    text-decoration: none; 
+    margin-right: 15px; 
 }
 
 header a:hover {
-    color: #c0c0c0; /* Light grey for hover state */
-}
+    color: #c0c0c0; 
+} */
 
 /* Search form styling */
-.search-container {
+/* .search-container {
     padding: 20px;
     display: flex;
-    justify-content: left; /* Centering the search box horizontally */
+    justify-content: left;
     margin: 20px 0;
 }
 
 .search-input {
     padding: 8px;
-    width: 300px; /* Fixed width for the search input */
-    border: 1px solid #ccc; /* Light grey border */
-    border-radius: 4px 0 0 4px; /* Rounded corners on the left side */
+    width: 300px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px 0 0 4px; 
 }
 
 .search-button {
     padding: 8px 16px;
-    background-color: #007BFF; /* Bootstrap blue */
+    background-color: #007BFF; 
     border: none;
     color: white;
     cursor: pointer;
-    border-radius: 0 4px 4px 0; /* Rounded corners on the right side */
+    border-radius: 0 4px 4px 0; 
 }
 
 .search-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
+    background-color: #0056b3; 
+} */
 
 /* Game list styles */
 .game-container {

@@ -3,8 +3,7 @@ import Layout from './Layout';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GameListsPage from '../pages/GameListsPage';
 import GameDetailPage from '../pages/GameDetailPage';
-
-
+import HomePage from '../pages/HomePage';
 
 const App = () => {
     return (
@@ -12,8 +11,10 @@ const App = () => {
             <Router>
                 <Layout>
                     <Routes>
+                        <Route path="/home" element={ <HomePage />} />
                         <Route path="/" element= { <GameListsPage /> } />
                         <Route path="/games/:gameId" element= { <GameDetailPage />} />
+                        {/* <Route path="/search" element={<SearchResult results={searchResults} />} /> */}
                     </Routes>
                 </Layout>
             </Router>

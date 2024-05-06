@@ -12,7 +12,7 @@ const Header = () => {
 
     return (
         <header>
-            <Link to="/" className="homepage"> 
+            <Link to="/home" className="homepage"> 
                 <img src={PSicon} alt="PlaySafe Icon" id="psicon" height="85px" width="85px" />
             </Link>
             <Search onSearch={handleSearch} /> 

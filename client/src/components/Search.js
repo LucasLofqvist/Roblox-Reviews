@@ -19,7 +19,7 @@ const Search = ({ onSearch }) => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="search-input"
             />
-            <button type="submit" className="search-button">Search</button>
+            <button type="submit" className="fa fa-search"></button>
         </form>
     );
 };

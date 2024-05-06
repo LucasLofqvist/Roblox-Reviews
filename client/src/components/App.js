@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GameListsPage from '../pages/GameListsPage';
 import GameDetailPage from '../pages/GameDetailPage';
 
+
+
 const App = () => {
     return (
         <div>

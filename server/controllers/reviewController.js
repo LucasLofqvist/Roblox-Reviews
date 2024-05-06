@@ -38,6 +38,30 @@ export const findReview = async (req, res) => {
     }
 };
 
+//Find reviews based on gameId
+export const findGameReviews = async (req, res) => {
+    try {
+        const gameId = req.params.gameId;
+
+        if(!gameId) {
+            return res.status(400).json({message: "Missing required query information."})
+        };
+
+        const response = await Review.find({gameId: gameId});
+
+        if(!response) {
+            return res.status(404).json({message: `Cant find any reviews that are referencing a game with id: ${gameId}`});
+        };
+
+        res.status(200).json(response);
+
+    } catch (error) {
+        res.status(500).json({message: "Something went wrong!", error: error.errmsg});
+    }
+};
+
+
+//Add new review
 export const addReview = async (req, res) => {
     try {
         const {gameId, username, rating, reviewText, violence, suggestedAge} = req.body;

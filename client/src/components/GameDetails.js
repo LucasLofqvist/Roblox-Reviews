@@ -37,35 +37,46 @@ const GameDetails = () => {
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
-
+    
     return (
         <div className="game-details">
             {game ? (
                 <>
                     <h2>{game.title}</h2>
-                    <img src={game.thumbnailUrl} alt={game.title} className="w-full h-48 object-cover" />
+                    <div className="game-details-image-wrapper">
+                        <img src={game.thumbnailUrl} alt={game.title} className="game-details-image" />
+                    </div>
                     <p>{game.description}</p>
                     {game.gameUrl && (
                         <button onClick={handleGameUrlClick} className="game-link-button">
                             Play Now
                         </button>
                     )}
-                    <div>
+                    <div className='reviews'>
                         <h3>Reviews</h3>
                         {reviews.length ? (
                             reviews.map(review => (
-                                <div key={review._id}>
-                                    <h4>{review.username}</h4>
-                                    <p>{review.reviewText}</p>
-                                    <p>Rating: {review.rating}</p>
-                                    <p>Violence: {review.violence ? 'Yes' : 'No'}</p>
-                                    <p>Suggested Age: {review.suggestedAge}</p>
+                                <div className="review-card">
+                                <h4>{review.username}</h4>
+                                <p className="review-text">{review.reviewText}</p>
+                                <div className="review-details">
+                                    <span className={`violence-indicator ${review.violence ? 'violence-yes' : 'violence-no'}`}>
+                                        Violence: {review.violence ? 'Yes' : 'No'}
+                                    </span>
+                                    <span className="suggested-age">
+                                        Suggested Age: {review.suggestedAge}
+                                    </span>
                                 </div>
+                                <div className="rating-stars" style={{ '--rating': review.rating / 2 }}>
+                                    {/* Stars inserted via CSS */}
+                                </div>
+                            </div>
                             ))
                         ) : (
                             <p>No reviews yet</p>
                         )}
                     </div>
+
                 </>
             ) : (
                 <p>Game not found</p>

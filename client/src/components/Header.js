@@ -1,22 +1,27 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import PSicon from '../img/pfIcon.png'
+import { Link, useNavigate } from "react-router-dom"
+import Search from './Search'
 
-const Header = ({ isLoggedIn }) => {
+const Header = () => {
+    const navigate = useNavigate();
+
+    const handleSearch = async (searchTerm) => {
+        navigate(`/?search=${encodeURIComponent(searchTerm)}`);
+    }
+
     return (
-        <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
-            <Link to="/" className="text-lg font-bold">LOGO</Link>
-            <nav>
-                <Link to="/" className="px-4">Home</Link>
-                <Link to="/" className="px-4">Games</Link>
-                <Link to="/about" className="px-4">About Us</Link>
-                {isLoggedIn ? (
-                    <Link to="/profile" className="px-4">Profile</Link>
-                ) : (
-                    <Link to="/login" className="px-4">Login</Link>
-                )}
-            </nav>
+        <header>
+            <Link to="/" className="homepage"> 
+                <img src={PSicon} alt="PlaySafe Icon" id="psicon" height="85px" width="85px" />
+            </Link>
+            <Search onSearch={handleSearch} /> 
+            <div id="login">
+                <Link to="/login"> <button> Login</button> </Link>
+                <Link to="/signUp"> <button> Sign up</button> </Link>
+            </div>
         </header>
     );
-};
+}
 
 export default Header;

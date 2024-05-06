@@ -1,3 +1,4 @@
+// Search.js
 import React, { useState } from 'react';
 
 const Search = ({ onSearch }) => {
@@ -6,6 +7,7 @@ const Search = ({ onSearch }) => {
     const handleSearch = (event) => {
         event.preventDefault();
         onSearch(searchTerm);
+        setSearchTerm('');
     };
 
     return (

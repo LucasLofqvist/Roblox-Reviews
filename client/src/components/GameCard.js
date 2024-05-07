@@ -2,7 +2,7 @@ import React from 'react';
 import FetchReviewStats from './FetchReviewStates';
 import { Link } from 'react-router-dom'; // Import Link from React Router
 
-const GameCard = ({ game }) => {
+const GameCard = ({ game, isAdmin }) => {
     return (
         <div className="game-card">
             <Link to={`/games/${encodeURIComponent(game.title)}`} className="game-link">
@@ -14,6 +14,12 @@ const GameCard = ({ game }) => {
             <div className="game-stats">
                 <FetchReviewStats gameTitle={game.title} />
             </div>
+            {isAdmin && (
+                <div className="admin-controls">
+                    <button className="update-button">Update</button>
+                    <button className="delete-button">Delete</button>
+                </div>
+            )}
         </div>
     );
 };

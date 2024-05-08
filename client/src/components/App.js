@@ -14,7 +14,6 @@ const App = () => {
                         <Route path="/home" element={ <HomePage />} />
                         <Route path="/" element= { <GameListsPage /> } />
                         <Route path="/games/:gameId" element= { <GameDetailPage />} />
-                        {/* <Route path="/search" element={<SearchResult results={searchResults} />} /> */}
                     </Routes>
                 </Layout>
             </Router>

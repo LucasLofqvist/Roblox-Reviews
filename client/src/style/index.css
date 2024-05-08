@@ -9,55 +9,6 @@ body {
 *, *::before, *::after {
     box-sizing: border-box; /* Apply universally */
   }
-
-
-/* header {
-    background-color: #333; 
-    color: #fff; 
-    padding: 10px 20px; 
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-}
-
-header a {
-    color: #fff; 
-    text-decoration: none; 
-    margin-right: 15px; 
-}
-
-header a:hover {
-    color: #c0c0c0; 
-} */
-
-/* Search form styling */
-/* .search-container {
-    padding: 20px;
-    display: flex;
-    justify-content: left;
-    margin: 20px 0;
-}
-
-.search-input {
-    padding: 8px;
-    width: 300px; 
-    border: 1px solid #ccc; 
-    border-radius: 4px 0 0 4px; 
-}
-
-.search-button {
-    padding: 8px 16px;
-    background-color: #007BFF; 
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 0 4px 4px 0; 
-}
-
-.search-button:hover {
-    background-color: #0056b3; 
-} */
-
 /* Game list styles */
 .game-container {
     padding: 20px;

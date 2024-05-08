@@ -1,9 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App"; // Adjust based on your file naming
-import "./gameLayout.css"; // Ensure this path is correct
-import "./index1.css";
-import "./index2.css";
+import "./gameLayout.css";
+import "../src/style/index.css"; // Ensure this path is correct
+import "../src/style/index1.css";
+import "../src/style/index2.css";
+import "../src/style/carousell.css"
+import "../src/style/news.css"
 
 const rootElement = document.getElementById("root");
 if (rootElement) {

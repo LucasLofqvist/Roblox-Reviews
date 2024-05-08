@@ -23,14 +23,15 @@ body {
     width: 335px;
 }
 
-.search-container i {
+.fa.fa-search {
     position: absolute;
     top: 50%;
     right: 755px;
     transform: translateY(-50%);
-    color: #555;
+    color: #0c0c0c;
     cursor: pointer;
-    
+    background: none;
+    border: none;
 }
 
 #psicon {

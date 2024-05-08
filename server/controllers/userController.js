@@ -30,9 +30,9 @@ export const findUser = async (req, res) => {
 
 export const addUser = async (req, res) => {
     try {
-        const {username, birthYear, email, password, role} = req.body;
+        const {username, birthYear, email, password} = req.body;
 
-    if (!username || !birthYear || !email || !password || !role) {
+    if (!username || !birthYear || !email || !password) {
         return res.status(400).json({message: "Missing required fields in the request body."});
     };
 
@@ -42,7 +42,7 @@ export const addUser = async (req, res) => {
         email: email,
         password: password,
         createdAt: new Date(),
-        role: role
+        role: "User"
     });
 
     await newUser.save();

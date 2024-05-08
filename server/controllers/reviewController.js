@@ -112,10 +112,14 @@ export const findGameReviews = async (req, res) => {
 
 //Add new review
 export const addReview = async (req, res) => {
+
+    if (!req.payload) {
+        console.error("No token payload found in request.");
+        res.status(400).json({message: "Unauthorized."});
+    }
+
     try {
         const {gameId, username, rating, reviewText, violence, suggestedAge} = req.body;
-
-        console.log(gameId, username, typeof rating, reviewText, violence, suggestedAge);
 
         //Make sure strings and numbers fields are not undefined
         if (!gameId || !username || typeof rating !== "number" || !reviewText || !suggestedAge) {
@@ -137,9 +141,6 @@ export const addReview = async (req, res) => {
         if (!userExist) {
             return res.status(400).json({message: "The username referenced by the review does not exist."});
         }
-
-        console.log(1, username);
-        console.log(2, gameId);
 
         const newReview = new Review({
             gameId: gameId,

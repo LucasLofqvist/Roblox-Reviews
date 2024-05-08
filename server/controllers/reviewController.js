@@ -1,6 +1,7 @@
 import Review from "../models/reviewModel.js";
 import Game from "../models/gameModel.js";
 import User from "../models/userModel.js";
+import mongoose from "mongoose";
 
 //Find all reviews
 export const allReviews = async (req, res) => {
@@ -43,11 +44,59 @@ export const findGameReviews = async (req, res) => {
     try {
         const gameId = req.params.gameId;
 
-        if(!gameId) {
-            return res.status(400).json({message: "Missing required query information."})
-        };
+        if (!mongoose.Types.ObjectId.isValid(gameId)) {
+            return res.status(400).json({ message: "Invalid gameId" });
+        }
 
-        const response = await Review.find({gameId: gameId});
+        const response = await Review.aggregate([
+            {
+                //Where the reviews gameId field match the params gameId variable.
+                $match: {
+                    gameId: new mongoose.Types.ObjectId(gameId)
+                    //new mongoose.Types.ObjectId(gameId)
+                }
+            },
+            {
+                $lookup: {
+                    from: "users",
+                    localField: "username",
+                    foreignField: "username",
+                    as: "userDocuments"
+                }
+            },
+            {
+                $unwind: "$userDocuments"
+            },
+            {
+                $project: {
+                    _id: 1,
+                    gameId: 1,
+                    user: {
+                        username: "$userDocuments.username",
+                        birthYear: "$userDocuments.birthYear",
+                        role: "$userDocuments.role"
+                    },
+                    rating: 1,
+                    reviewText: 1,
+                    createdAt: 1,
+                    violence: 1,
+                    suggestedAge: 1
+                }
+            },
+            {
+                $group: {
+                    _id: "$gameId",
+                    reviews: { $push: "$$ROOT"},
+                    count: { $count: {}},
+                    averageRating: { $avg: "$rating"}
+                }
+            },
+            {
+                $addFields: {
+                    averageRating: { $round: ["$averageRating", 0] } // Round the average rating
+                }
+            }
+        ]);
 
         if(!response) {
             return res.status(404).json({message: `Cant find any reviews that are referencing a game with id: ${gameId}`});
@@ -56,7 +105,7 @@ export const findGameReviews = async (req, res) => {
         res.status(200).json(response);
 
     } catch (error) {
-        res.status(500).json({message: "Something went wrong!", error: error.errmsg});
+        res.status(500).json({message: "Something went wrong!", error: error.message});
     }
 };
 

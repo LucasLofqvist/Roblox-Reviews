@@ -1,7 +1,8 @@
 import React from 'react';
+import FetchReviewStats from './FetchReviewStates';
 import { Link } from 'react-router-dom'; // Import Link from React Router
 
-const GameCard = ({ game }) => {
+const GameCard = ({ game, isAdmin }) => {
     return (
         <div className="game-card">
             <Link to={`/games/${encodeURIComponent(game.title)}`} className="game-link">
@@ -11,9 +12,14 @@ const GameCard = ({ game }) => {
                 <h3 className="game-title">{game.title}</h3>
             </Link>
             <div className="game-stats">
-                <p>Average Rating: {game.averageRating || 'N/A'}</p>
-                <p>Total Reviews: {game.totalReviews || 0}</p>
+                <FetchReviewStats gameTitle={game.title} />
             </div>
+            {isAdmin && (
+                <div className="admin-controls">
+                    <button className="update-button">Update</button>
+                    <button className="delete-button">Delete</button>
+                </div>
+            )}
         </div>
     );
 };

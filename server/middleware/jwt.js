@@ -1,8 +1,8 @@
-import jwt from jsonwebtoken;
+import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 import { comparePassword } from "./brcypt.js";
-import dotenv from dotenv;
-dotenv.process();
+import { config } from "dotenv";
+config();
 
 export async function returnToken(req, res, next) {
     const payload = req.user;
@@ -10,16 +10,16 @@ export async function returnToken(req, res, next) {
     const expiresIn = "2h";
     const token = await createToken(payload, secretKey, { expiresIn } );
     if (token) {
-        res.json({ token });
+        return res.status(200).json({message: "Token created successfully!", token });
     } else {
         console.log("Invalid token")
-        res.status(500).json({ message: "Error while logging in" })
+        return res.status(500).json({ message: "Error while logging in" })
     }
 }
 
 async function createToken(payload, secretKey, expiresIn) {
     try {
-        const token = jwt.sign(payload, secretKey, { expiresIn });
+        const token = jwt.sign(payload, secretKey, expiresIn);
         return token;
     } catch (error) {
         console.error("Error while creating token", error)
@@ -32,16 +32,17 @@ export async function verifyToken(req, res, next) {
     try {
         const headerAuth = req.header("authorization");
         if (!headerAuth.startsWith("Bearer")) {
-            res.status(401).json({ message: "Unauthorized" })
+            return res.status(401).json({ message: "Unauthorized" })
         }
 
         const token = headerAuth.split(" ")[1];
         const secretKey = process.env.SECRETKEY;
-        const payload = await jwt.verify(token, secretKey);
+        const payload = jwt.verify(token, secretKey);
         req.payload = payload;
+        next();
     } catch (error) {
         console.error("Error while verifying Token", error);
-        res.status(401).json({ message: "Unauthorized" })
+        return res.status(401).json({ message: "Unauthorized" })
     }
 }
 
@@ -79,6 +80,6 @@ export async function authenticate(req, res, next) {
         req.user = user;
         next();
     } else {
-        res.status(401).json({ message: "Wrong username or password." });
+        return res.status(401).json({ message: "Wrong username or password." });
     }
 }

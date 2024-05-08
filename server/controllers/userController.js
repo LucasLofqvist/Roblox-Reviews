@@ -1,3 +1,4 @@
+import { hashPassword } from "../middleware/brcypt.js";
 import User from "../models/userModel.js";
 
 export const allUsers = async (req, res) => {
@@ -36,11 +37,14 @@ export const addUser = async (req, res) => {
         return res.status(400).json({message: "Missing required fields in the request body."});
     };
 
+    //Hashing password through Bcrypt
+    const hashedPassword = await hashPassword(password);
+
     const newUser = new User({
         username: username,
         birthYear: birthYear,
         email: email,
-        password: password,
+        password: hashedPassword,
         createdAt: new Date(),
         role: "User"
     });

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import GamesList from '../components/GamesList';
 import {FetchRouter} from '../components/FetchRouter';
+import '../style/gameLayout.css';
 
 const GameListsPage = () => {
     const [games, setGames] = useState([]);

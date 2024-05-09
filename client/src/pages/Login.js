@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FetchRouter } from '../components/FetchRouter';
 import { useAuth } from '../context/AuthContext';
-import '../login.css';
+import '../style/login.css';
 
 function Login() {
     const [username, setUsername] = useState('');

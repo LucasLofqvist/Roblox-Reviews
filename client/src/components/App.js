@@ -6,7 +6,6 @@ import GameDetailPage from '../pages/GameDetailPage';
 import { AuthProvider } from '../context/AuthContext';
 import Signup from '../pages/SignUp';
 import Login from '../pages/Login';
-
 import HomePage from '../pages/HomePage';
 
 const App = () => {
@@ -17,7 +16,7 @@ const App = () => {
                     <Layout>
                         <Routes>
                             <Route path="/home" element={ <HomePage />} />
-                            <Route path="/" element= { <GameListsPage /> } />
+                            <Route path="/gameList" element= { <GameListsPage /> } />
                             <Route path="/games/:gameId" element= { <GameDetailPage />} />
                             <Route path="/signup" element= { <Signup />} />
                             <Route path="/login" element= { <Login />} />

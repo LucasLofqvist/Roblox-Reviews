@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import GameDetails from '../components/GameDetails';
-import '../gameReview.css';
+import '../style/gameReview.css';
 
 
 const GameDetailPage = ({ gameTitle }) => {

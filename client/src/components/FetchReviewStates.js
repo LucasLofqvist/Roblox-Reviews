@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import FetchRouter from './FetchRouter';
+import {FetchRouter} from './FetchRouter';
 
 const FetchReviewStats = ({ gameTitle }) => {
     const [reviewStats, setReviewStats] = useState({

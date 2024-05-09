@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useNavigate } from 'react-router-dom';
-import FetchRouter from '../components/FetchRouter';
+import {FetchRouter} from '../components/FetchRouter';
 import '../signup.css';
 
 function Signup() {
@@ -8,14 +8,30 @@ function Signup() {
     const [birthYear, setBirthYear] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    const [role, setRole] = useState('User');
     const navigate = useNavigate();
     const [error, setError] = useState('');
 
-    
-
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        const currentYear = new Date().getFullYear();
+        const minBirthYear = currentYear - 13; // No younger than 13
+        const maxBirthYear = currentYear - 120; // No older than 120 years
+
+        if (birthYear < maxBirthYear || birthYear > minBirthYear) {
+            setError('Birth year must be valid. You must be at least 13 years old.');
+            return;
+        }
+
+        if (!email.match(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)) {
+            setError('Please enter a valid email address.');
+            return;
+        }
+        if (password.length < 4) {
+            setError('Password must be at least 4 characters long.');
+            return;
+        }
+
         try {
             const data = await FetchRouter('api/users', {
                 method: 'POST',
@@ -27,13 +43,12 @@ function Signup() {
                     birthYear: parseInt(birthYear), 
                     email, 
                     password, 
-                    role 
                 }),
             });
             
             if (data.success) {
                 alert("Account created successfully!")
-                navigate('/'); // Redirect to login page after successful signup
+                navigate('/login'); // Redirect to login page after successful signup
             } else {
                 setError('Failed to create account');
             }
@@ -44,37 +59,29 @@ function Signup() {
 
     return (
         <div className="signup-container">
-           <div className="signup-body">
+            <div className="signup-body">
             <h2>Sign Up</h2>
             <form className="signup-form" onSubmit={handleSubmit}>
                 <label>
                     Username:
-                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                    <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
                 </label>
                 <label>
                     Birth Year:
-                    <input type="number" value={birthYear} onChange={(e) => setBirthYear(e.target.value)} required />
+                    <input type="number" placeholder="YYYY" value={birthYear} onChange={(e) => setBirthYear(e.target.value)} required />
                 </label>
                 <label>
                     Email:
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <input type="email" placeholder="xxx@xxx.com "value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </label>
                 <label>
                     Password:
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                </label>
-                <label>
-                    Role:
-                        <select value={role} onChange={(e) => setRole(e.target.value)} required>
-                            <option value="User">User</option>
-                            <option value="Moderator">Moderator</option>
-                            <option value="Owner">Owner</option>
-                        </select>
+                    <input type="password"  value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </label>
                 <button type="submit">Sign Up</button>
                 {error && <p className="error-message">{error}</p>}
             </form>
-            <p>Already have an account? <button onClick={() => navigate('/')}>Login</button></p>
+            <p>Already have an account? <button onClick={() => navigate('/login')}>Login</button></p>
             </div>
         </div>
     );

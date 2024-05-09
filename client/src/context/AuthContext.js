@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
+        localStorage.removeItem('token');  // Remove the stored token
         setIsLoggedIn(false);
         setIsAdmin(false);
         navigate('/'); // This will now work correctly

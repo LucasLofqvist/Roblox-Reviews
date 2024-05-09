@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import FetchRouter from '../components/FetchRouter';
+import {FetchRouter} from '../components/FetchRouter';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {

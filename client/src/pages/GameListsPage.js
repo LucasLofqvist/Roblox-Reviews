@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import GamesList from '../components/GamesList';
-import FetchRouter from '../components/FetchRouter';
+import {FetchRouter} from '../components/FetchRouter';
 
 const GameListsPage = () => {
     const [games, setGames] = useState([]);
@@ -21,7 +21,6 @@ const GameListsPage = () => {
                 setLoading(false);
             }
         };
-
         fetchGames();
     }, []);
 
@@ -34,7 +33,7 @@ const GameListsPage = () => {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div>
+        <div className='game-list-container'>
             {filteredGames.length > 0 ? (
                 <GamesList games={filteredGames} />
             ) : (

@@ -6,7 +6,7 @@ import Search from './Search'
 
 const Header = () => {
     const navigate = useNavigate();
-    const {isLoggedIn,isAdmin, logout} = useAuth()
+    const {isLoggedIn,isAdmin = false, logout} = useAuth()
 
     const handleSearch = async (searchTerm) => {
         navigate(`/?search=${encodeURIComponent(searchTerm)}`);

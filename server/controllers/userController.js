@@ -33,27 +33,26 @@ export const addUser = async (req, res) => {
     try {
         const {username, birthYear, email, password} = req.body;
 
-    if (!username || !birthYear || !email || !password) {
-        return res.status(400).json({message: "Missing required fields in the request body."});
-    };
+        if (!username || !birthYear || !email || !password) {
+            return res.status(400).json({message: "Missing required fields in the request body."});
+        };
 
-    //Hashing password through Bcrypt
-    const hashedPassword = await hashPassword(password);
+        //Hashing password through Bcrypt
+        const hashedPassword = await hashPassword(password);
 
-    const newUser = new User({
-        username: username,
-        birthYear: birthYear,
-        email: email,
-        password: hashedPassword,
-        createdAt: new Date(),
-        role: "User"
-    });
+        const newUser = new User({
+            username: username,
+            birthYear: birthYear,
+            email: email,
+            password: hashedPassword,
+            createdAt: new Date(),
+            role: "User"
+        });
 
-    await newUser.save();
-
-    res.status(201).json({message: "User succsessfully added!", data: newUser});
+        await newUser.save();
+        res.status(201).json({success: true, message: "User successfully added!", data: newUser});
 
     } catch (error) {
-        res.status(500).json({message: "Something went wrong!", error: error.message});
+        res.status(500).json({success: true, message: "Something went wrong!", error: error.message});
     }
 };

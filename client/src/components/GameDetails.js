@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import FetchRouter from './FetchRouter';
+import {FetchRouter} from './FetchRouter';
+
 
 const GameDetails = () => {
     const { gameId } = useParams();
@@ -17,8 +18,9 @@ const GameDetails = () => {
                 if (!gameData || !gameData._id) {
                     throw new Error("Game not found");
                 }
-                
+
                 const reviewsData = await FetchRouter(`api/reviews/${gameData._id}`);
+                console.log(reviewsData[0].reviews);
                 setReviews(reviewsData && reviewsData[0] && reviewsData[0].reviews ? reviewsData[0].reviews : []);
             } catch (err) {
                 setError(err.message);
@@ -45,7 +47,7 @@ const GameDetails = () => {
                         <h3>Reviews</h3>
                         {reviews.length ? reviews.map((review, index) => (
                             <div key={index} className="review-card">
-                                <h4>{review.username}</h4>
+                                <h4>{review.user.username} {review.user.birthYear}</h4>
                                 <p className="review-text">{review.reviewText}</p>
                                 <div className="review-details">
                                     <span className={`violence-indicator ${review.violence ? 'violence-yes' : 'violence-no'}`}>Violence: {review.violence ? 'Yes' : 'No'}</span>

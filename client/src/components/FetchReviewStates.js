@@ -18,7 +18,7 @@ const FetchReviewStats = ({ gameTitle }) => {
                 }
 
                 const reviewsData = await FetchRouter(`api/reviews/${gameData._id}`);
-                
+                                
                 if (reviewsData && reviewsData.length > 0 && reviewsData[0]) {
                     const { averageRating, count } = reviewsData[0]; // Destructuring for cleaner access
                     setReviewStats({
@@ -41,17 +41,12 @@ const FetchReviewStats = ({ gameTitle }) => {
 
     return (
         <div className="review-stats">
-            {reviewStats.totalReviews > 0 ? (
-                <>
-                    <p>Average Rating: {reviewStats.averageRating}</p>
-                    <p>Total Reviews: {reviewStats.totalReviews}</p>
-                </>
-            ) : (
-                <p>No reviews available</p>
-            )}
+            <>
+                <p>Average Rating: {reviewStats.averageRating}</p>
+                <p>Total Reviews: {reviewStats.totalReviews}</p>
+            </>
         </div>
     );
 };
-
 
 export default FetchReviewStats;

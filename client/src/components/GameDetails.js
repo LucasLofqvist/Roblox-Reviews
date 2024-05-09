@@ -18,12 +18,13 @@ const GameDetails = () => {
                 if (!gameData || !gameData._id) {
                     throw new Error("Game not found");
                 }
-
                 const reviewsData = await FetchRouter(`api/reviews/${gameData._id}`);
-                console.log(reviewsData[0].reviews);
-                setReviews(reviewsData && reviewsData[0] && reviewsData[0].reviews ? reviewsData[0].reviews : []);
+                if (!reviewsData || !reviewsData[0] || !Array.isArray(reviewsData[0].reviews)) {
+                    setReviews([]); // Set to an empty array if the condition is not met
+                } else {
+                    setReviews(reviewsData[0].reviews);}
             } catch (err) {
-                setError(err.message);
+                setError("message:" + err.message);
             } finally {
                 setLoading(false);
             }

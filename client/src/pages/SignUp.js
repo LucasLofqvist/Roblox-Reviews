@@ -49,11 +49,18 @@ function Signup() {
             if (data.success) {
                 alert("Account created successfully!")
                 navigate('/login'); // Redirect to login page after successful signup
-            } else {
+            }
+            //Handles duplicate index errors
+            else if(data.error.startsWith("E11000")) {
+                setError("This username already exists");
+            }
+            //Other errors are logged
+            else {
                 setError('Failed to create account');
+                console.error(data.error);
             }
             } catch (err) {
-                setError('Error creating account: '+ err.message);
+                console.error(err);
             }
         };
 

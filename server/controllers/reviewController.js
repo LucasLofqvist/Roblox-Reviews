@@ -115,7 +115,7 @@ export const addReview = async (req, res) => {
 
     if (!req.payload) {
         console.error("No token payload found in request.");
-        res.status(400).json({message: "Unauthorized."});
+        res.status(400).json({success:true, message: "Unauthorized."});
     }
 
     try {
@@ -154,7 +154,7 @@ export const addReview = async (req, res) => {
 
         await newReview.save();
 
-        res.status(201).json({message: "Review succsessfully added!", data: newReview});
+        res.status(201).json({success: true, message: "Review succsessfully added!", data: newReview});
         
     } catch (error) {
         res.status(500).json({message: "Something went wrong!", error: error.message});

@@ -14,7 +14,7 @@ export const authFetchRouter = async (url, options = {}) => {
     const token = localStorage.getItem('token');  // Retrieve the stored JWT
     const headers = {
         ...options.headers,
-        'Authorization': `Bearer ${token}`,  // Append the JWT as a Bearer token
+        'authorization': `Bearer ${token}`,  // Append the JWT as a Bearer token
     };
     return FetchRouter(url, { ...options, headers });  // Call FetchRouter with the updated headers
 };

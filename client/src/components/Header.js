@@ -9,12 +9,12 @@ const Header = () => {
     const {isLoggedIn,isAdmin = false, logout} = useAuth()
 
     const handleSearch = async (searchTerm) => {
-        navigate(`/?search=${encodeURIComponent(searchTerm)}`);
+        navigate(`/gameList/?search=${encodeURIComponent(searchTerm)}`);
     }
 
     return (
         <header>
-            <Link to="/home" className="homepage"> 
+            <Link to="/" className="homepage"> 
                 <img src={PSicon} alt="PlaySafe Icon" id="psicon" height="85px" width="85px" />
             </Link>
             <Search onSearch={handleSearch} /> 

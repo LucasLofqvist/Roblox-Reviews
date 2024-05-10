@@ -12,7 +12,7 @@ const GameCard = ({ game, isAdmin }) => {
                 <h3 className="game-title">{game.title}</h3>
             </Link>
             <div className="game-stats">
-                <FetchReviewStats gameTitle={game.title} />
+                <FetchReviewStats gameId={game._id} />
             </div>
             {isAdmin && (
                 <div className="admin-controls">

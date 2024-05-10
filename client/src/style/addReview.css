@@ -1,0 +1,80 @@
+/* Basic reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.add-review-container {
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    margin: 0;
+}
+
+.review-body {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 480px;
+}
+
+.review-body h2 {
+    font-size: x-large;
+    margin: 10px;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.review-form label {
+    font-size: large;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.review-form input, .review-form select, .review-form textarea, .review-form button {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+.review-form button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.review-form button:hover {
+    background-color: #004494;
+}
+
+.error-message {
+    color: #cc0000;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: #0066cc;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 5px;
+}
+
+p {
+    margin-top: 20px;
+}

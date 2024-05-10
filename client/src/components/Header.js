@@ -9,7 +9,7 @@ const Header = () => {
     const {isLoggedIn,isAdmin = false, logout} = useAuth()
 
     const handleSearch = async (searchTerm) => {
-        navigate(`/?search=${encodeURIComponent(searchTerm)}`);
+        navigate(`/gameList/?search=${encodeURIComponent(searchTerm)}`);
     }
 
     return (

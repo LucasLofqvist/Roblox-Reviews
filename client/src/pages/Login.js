@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FetchRouter } from '../components/FetchRouter';
 import { useAuth } from '../context/AuthContext';
 import '../style/login.css';
 
@@ -14,24 +13,9 @@ function Login() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await FetchRouter(`api/users/login`, {  // Assuming 'login' endpoint exists
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
-            });
-
-            if (response.token) {
-                localStorage.setItem('token', response.token);
-                console.log(response.token); 
-                console.log('Navigate to home'); 
-                alert("You are now login and enjoy!")
-                navigate('/');
-                login(); // Redirect to homepage or dashboard as needed
-            } else {
-                setError(response.message || 'Invalid username or password');  // Assuming error message is in response.message
-            }
+            await login(username, password);  // Use login from AuthContext
+            alert("You are now logged in and enjoy!");
+            navigate("/")
         } catch (err) {
             setError('Failed to login: ' + err.message);
         }

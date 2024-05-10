@@ -53,7 +53,7 @@ function Login() {
                     <button type="submit">Login</button>
                     {error && <p>{error}</p>}
                 </form>
-                <p>Not yet have an account? <button onClick={() => navigate('/signup')}>Sign Up</button></p>
+                <p>Not yet have an account? <button className='loginPage' onClick={() => navigate('/signup')}>Sign Up</button></p>
             </div>
         </div>
     );

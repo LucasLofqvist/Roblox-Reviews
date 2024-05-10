@@ -48,16 +48,6 @@ body {
     
 }
 
-footer {
-    background-color: #f4f4f4; 
-    padding: 20px; 
-    text-align: center; 
-    position: fixed; 
-    left: 0;
-    bottom: 0;
-    width: 20%; 
-}
-
 ul {
     list-style-type: none;
     margin: 50px;
@@ -71,6 +61,7 @@ li {
 }
 
 li.about {
+    transition: background-color 0.3s ease;
     float: right;
 }
 
@@ -79,8 +70,32 @@ li a {
     color: white;
     padding: 12px;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 li a:hover {
+    background-color: #111;
+}
+
+button.loginButton,
+button.signInButton,
+button.loggedIn {
+    border: none;
+    float: left;
+    display: block;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: 2px;
+    border: none;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+
+button.loginButton:hover,
+button.signInButton:hover,
+button.loggedIn:hover {
     background-color: #111;
 }

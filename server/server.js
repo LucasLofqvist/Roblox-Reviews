@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { config } from "dotenv";
+import path from "path";
 
 import { gameRouter } from "./routers/gameRouter.js";
 import { reviewRouter } from "./routers/reviewRouter.js";
@@ -22,6 +23,11 @@ app.use(cors());
 app.use("/api/games", gameRouter);
 app.use("/api/reviews", reviewRouter);
 app.use("/api/users", userRouter);
+
+// Serve the React app for any other route (React Router will handle client-side routing)
+app.get("*", (req, res) => {
+    res.sendFile(path.join(process.cwd(), "../client/build", "index.html"));
+});
 
 //Connect to database
 connectToMongo();

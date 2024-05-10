@@ -88,7 +88,7 @@ function Signup() {
                 <button type="submit">Sign Up</button>
                 {error && <p className="error-message">{error}</p>}
             </form>
-            <p>Already have an account? <button onClick={() => navigate('/login')}>Login</button></p>
+            <p>Already have an account? <button className='signInPage' onClick={() => navigate('/login')}>Login</button></p>
             </div>
         </div>
     );

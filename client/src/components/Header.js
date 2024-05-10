@@ -14,17 +14,17 @@ const Header = () => {
 
     return (
         <header>
-            <Link to="/home" className="homepage"> 
+            <Link to="/" className="homepage"> 
                 <img src={PSicon} alt="PlaySafe Icon" id="psicon" height="85px" width="85px" />
             </Link>
             <Search onSearch={handleSearch} /> 
             <div id="login">
                 {isLoggedIn || isAdmin ? (
-                    <button onClick={logout}>Logout</button>
+                    <button className='loggedIn' onClick={logout}>Logout</button>
                 ) : (
                     <>
-                    <Link to="/login"> <button> Login</button> </Link>
-                    <Link to="/signUp"> <button> Sign up</button> </Link>
+                    <Link to="/login"> <button className='loginButton'> Login</button> </Link>
+                    <Link to="/signUp"> <button className='signInButton'> Sign up</button> </Link>
                     </>
                 )}
             </div>

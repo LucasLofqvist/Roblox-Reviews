@@ -1,0 +1,37 @@
+.aboutUsInfo {
+    display: flex;
+    flex-direction: column;
+    left: 50px;
+    padding: 15px;
+    max-width: 100%;
+}
+
+.person {
+    display: flex;
+    margin-bottom: 20px;
+    margin-left: 580px;
+    /* border: 1px solid black; */
+}
+
+.person img {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    float: left;
+    border-radius: 50%;
+}
+
+.personInfo {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.personInfo h5 {
+    font-size: 25px;
+    margin-top: 0;
+}
+
+.personInfo p {
+    margin-top: 30px;
+    margin-bottom: 0;
+}

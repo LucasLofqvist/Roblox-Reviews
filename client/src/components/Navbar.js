@@ -9,7 +9,7 @@ const NavBar = () => {
                 <li><Link to="/gameList">Games </Link></li>
                 <li><Link to="/">xx </Link></li>
                 <li><Link to="/">xx </Link></li>
-                <li className="about"><Link to="/">About us </Link></li>
+                <li className="about"><Link to="/about">About us </Link></li>
             </ul>
         </nav>
     );

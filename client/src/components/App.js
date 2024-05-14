@@ -7,7 +7,12 @@ import { AuthProvider } from '../context/AuthContext';
 import Signup from '../pages/SignUp';
 import Login from '../pages/Login';
 import HomePage from '../pages/HomePage';
+<<<<<<< HEAD
 import { AddReviewForm } from '../pages/AddReviewForm';
+=======
+import About from '../pages/aboutUsPage'
+ 
+>>>>>>> freds-otherbranch
 const App = () => {
     return (
         <div>
@@ -21,6 +26,7 @@ const App = () => {
                             <Route path="/games/:gameId/add-review" element={<AddReviewForm />} />
                             <Route path="/signup" element= { <Signup />} />
                             <Route path="/login" element= { <Login />} />
+                            <Route path="/about" element= { <About />} />
                         </Routes>
                     </Layout>
                 </AuthProvider>  

@@ -7,12 +7,9 @@ import { AuthProvider } from '../context/AuthContext';
 import Signup from '../pages/SignUp';
 import Login from '../pages/Login';
 import HomePage from '../pages/HomePage';
-<<<<<<< HEAD
 import { AddReviewForm } from '../pages/AddReviewForm';
-=======
 import About from '../pages/aboutUsPage'
  
->>>>>>> freds-otherbranch
 const App = () => {
     return (
         <div>

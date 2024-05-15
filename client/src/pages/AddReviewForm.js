@@ -8,7 +8,7 @@ import '../style/addReview.css';
 export const AddReviewForm = () => {
     const { gameId } = useParams();
     console.log(gameId);
-    const { user } = useAuth();  // Get user details from context
+    const { user } = useAuth();  
     const [reviewText, setReviewText] = useState('');
     const [rating, setRating] = useState(5);
     const [violence, setViolence] = useState(false);
@@ -17,12 +17,7 @@ export const AddReviewForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!user) {
-            alert('You must be logged in to post a review.');
-            navigate("/login");
-            return;
-        }
-    
+
         const reviewData = {
             gameId,
             username: user.username,
@@ -32,8 +27,6 @@ export const AddReviewForm = () => {
             suggestedAge,
         };
 
-        
-    
         try {
             const response = await authFetchRouter(`api/reviews`, {
                 method: 'POST',
@@ -43,7 +36,7 @@ export const AddReviewForm = () => {
         
             if (response.success) {
                 alert('Review added successfully!');
-                navigate("/");
+                navigate(-1);
             } else {
                 alert(`Failed to add review: ${response.message}`);
             }

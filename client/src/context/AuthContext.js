@@ -35,7 +35,7 @@ const login = async (username, password) => {
             localStorage.setItem('token', response.token);  // Store the token
             setIsLoggedIn(true);  // Update login state
             setUser({ username });  // Set user details
-            navigate('/gameList');  // Navigate to homepage or dashboard as needed
+            setTimeout(() => navigate(-1), 100);  // Navigate to the previous page ensure the update
         } else {
             throw new Error(response.message || 'Login failed');
         }

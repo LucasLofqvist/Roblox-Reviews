@@ -15,7 +15,7 @@ function Login() {
         try {
             await login(username, password);  // Use login from AuthContext
             alert("You are now logged in and enjoy!");
-            navigate("/")
+            return
         } catch (err) {
             setError('Failed to login: ' + err.message);
         }

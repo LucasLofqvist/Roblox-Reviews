@@ -45,12 +45,14 @@
     border-radius: 4px;
     border: 1px solid #ddd;
     width: 100%;
+    border-radius: 5px;
 }
 
 .login-form button {
     background-color: #333;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -71,6 +73,7 @@
     color: #0066cc;
     cursor: pointer;
     padding: 0;
+    border-radius: 5px;
 }
 
 p {
@@ -86,6 +89,7 @@ button.loginPage {
     padding: 4px 8px;
     margin: 2px;
     transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
 
 button.loginPage:hover {

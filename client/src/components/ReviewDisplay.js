@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FetchRouter } from './FetchRouter';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext, useAuth } from '../context/AuthContext';
 
 export const ReviewsDisplay = ({ gameId }) => {
     const [reviews, setReviews] = useState([]);
+    const { user } = useAuth(AuthContext);
+    const navigate = useNavigate()
+
     
     useEffect(() => {
         const fetchReviews = async () => {
@@ -13,7 +17,7 @@ export const ReviewsDisplay = ({ gameId }) => {
                     setReviews([]);
                 } else {
                     const sortedReviews = reviewsData[0].reviews.sort((a, b) => 
-                        new Date(b.created_at) - new Date(a.created_at)
+                        new Date(b.createdAt) - new Date(a.createdAt)
                     );
                     setReviews(sortedReviews);
                 }
@@ -25,17 +29,30 @@ export const ReviewsDisplay = ({ gameId }) => {
         fetchReviews();
     }, [gameId]);
 
+    const handleAddReviewClick = () => {
+        if (!user) {
+            alert('Please log in to post a review!');
+            navigate("/login");
+            return;
+        } else {
+            const hasReviewed = reviews.some(review => review.user.username === user.username);
+            if (hasReviewed) {
+                alert('You have already submitted a review for this game!');
+                return
+            } else {
+                navigate(`/games/${gameId}/add-review`);
+            }
+        }
+    }
 
     const currentYear = new Date().getFullYear();
     
-    
-
     return (
         <div className="reviews">
-            <h3>Reviews
-            <Link to={`/games/${gameId}/add-review`}>
-                <button className="add-review-button">Add New Review</button>
-            </Link>
+            <h3>Reviews 
+                <button className="add-review-button" onClick={handleAddReviewClick}>
+                    +
+                </button>
             </h3>
             {reviews.length ? reviews.map((review, index) => (
                 <div key={index} className="review-card">

@@ -11,7 +11,7 @@
 .review-card h4 {
     color: #333;  /* Dark color for contrast */
     font-size: 18px;  /* Larger text for the reviewer's name */
-    margin-bottom: 5px;  /* Spacing after the name */
+    margin-bottom: 0px;  /* Spacing after the name */
 }
 
 .review-card p {
@@ -22,18 +22,17 @@
 
 .review-rating {
     font-weight: bold;
-    color: #0056b3;  /* Stylish color for ratings */
+    color: #0056b3;  
 }
 
 .review-content {
     display: flex;
-    flex-direction: column;  /* Stack elements vertically */
+    flex-direction: column;  
 }
 
 .review-details {
     display: flex;
-    /* Space elements like rating and suggested age */
-    margin-top: 10px;  /* Extra space from main review text */
+    margin-top: 10px;
 }
 
 .rating-stars {
@@ -67,7 +66,6 @@
     overflow: hidden;
 }
 
-
 /* Styles for the violence indicator */
 .violence-indicator {
     font-weight: bold;
@@ -94,4 +92,19 @@
     display: inline-block;
     font-weight: bold;
     color: #ec0f0f; /* Dark text for readability */
+}
+
+.add-review-button{
+    margin-left: 10px;
+    color: #c0392b;
+    font-weight: bold;
+    font-size: large;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #111;
+    color: #ccc;
 }

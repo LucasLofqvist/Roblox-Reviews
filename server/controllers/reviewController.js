@@ -68,9 +68,23 @@ export const findGameReviews = async (req, res) => {
                 $unwind: "$userDocuments"
             },
             {
+                $lookup: {
+                    from: "games",
+                    localField: "gameId",
+                    foreignField: "_id",
+                    as: "gameDocuments"
+                }
+            },
+            {
+                $unwind: "$gameDocuments"
+            },
+            {
                 $project: {
                     _id: 1,
-                    gameId: 1,
+                    game: {
+                        gameId: "$gameDocuments._id",
+                        gameTitle: "$gameDocuments.title"
+                    },
                     user: {
                         username: "$userDocuments.username",
                         birthYear: "$userDocuments.birthYear",

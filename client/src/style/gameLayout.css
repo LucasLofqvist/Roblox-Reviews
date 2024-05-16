@@ -1,99 +1,28 @@
-@media (max-width: 992px) {
-    .games-list {
-        padding: 0 20px; /* Smaller padding for smaller screens */
-        width: calc(100% - 40px); /* Adjust width to account for padding */
-    }
-
-    .game-card {
-        flex: 1 1 calc(50% - 40px); /* Adjust for 2 columns on medium screens */
-    }
-}
-
-@media (max-width: 768px) {
-    .games-list {
-        margin: 50px;
-        padding: 0 10px; /* Even smaller padding for very small screens */
-        width: calc(100% - 20px); /* Adjust width to account for padding */
-    }
-
-    .game-card {
-        flex: 1 1 100%; /* Full width cards on very small screens */
-    }
-}
-
-@media (max-width: 768px) {
-    .game-details {
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .go-back-button {
-        margin-left: 20px;
-    }
-}
-
-/* Enhance text readability and spacing */
-.game-description, .game-info, .review-text {
-    padding: 0 10px;
-    text-align: justify;
-}
-
-.game-stats, .review-details {
-    text-align: center;
-    padding: 5px 0;
-}
-
-/* Game list styles */
-.game-container {
-    padding: 20px;
-    background-color: white; /* White background for each game */
-    border: 1px solid #ddd; /* Light border for the game containers */
-    margin: 10px 20px;
-    border-radius: 8px; /* Rounded corners for the game containers */
-}
-
-.game-title {
-    font-size: 20px;
-    margin: 20px 0;
-    color: #333; /* Dark grey color for the game title */
-}
-
-.game-description {
-    color: #666; /* Medium grey for the text */
-}
-
-.game-info {
-    font-style: italic;
-    margin-top: 10px;
-}
-
+/* Game List and Card Styles */
 .games-list {
-    height: 100vh;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Changed from space-between for more consistent spacing */
-    margin: 50px; /* Assuming no additional horizontal margin is affecting width */
-    padding:0, 50px;
-    width: calc(100% - 100px); /* Ensure the container takes full available width */
+    justify-content: space-between;
+    margin: 50px;
+    width: calc(100% - 100px);
+    padding: 0;
 }
 
 .game-card {
-    flex: 1 1 calc(25% - 40px); /* Adjust the flex-basis to account for any margins */
-    margin: 10px;  /* Ensure this margin is accounted for in the flex-basis calculation */
+    flex: 1 1 calc(25% - 20px); /* Adjust the flex-basis to account for any margins */
+    margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 8px;
-    box-sizing: border-box; /* Include padding and border in the width calculation */
+    box-sizing: border-box;
 }
 
 .game-image-wrapper {
-    width: 100%; /* Full width of the card */
-    height: 200px; /* Fixed height for images */
+    width: 100%;
+    height: auto;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -101,16 +30,15 @@
 }
 
 .game-image {
-    width: 376px; /* Ensures width is always consistent */
-    height: 210px; /* Ensures height is always consistent */
-    object-fit: fit; /* Ensures the image covers the area, may crop */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .game-link {
     color: black;
     text-decoration: none;
 }
-
 
 .game-title {
     margin-top: 10px;
@@ -126,47 +54,47 @@
     margin-right: 50px;
 }
 
-.go-back-button{
+.go-back-button {
     margin: 20px 0;
     margin-left: 50px;
-    background-color: #333; /* Default background color */
-    color: white; /* Default text color */
-    padding: 10px 20px; /* Padding for better touch area */
-    border: none; /* Removes the border */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for color change */
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .go-back-button:hover, .game-link-button:hover {
-    background-color: #111; /* Darker shade when hovered */
-    color: #ffffff; /* You can change this if you want a different text color on hover */
+    background-color: #111;
+    color: #ffffff;
 }
 
 .game-details-image-wrapper {
     display: flex;
-    justify-content: left; /* Center image horizontally */
-    align-items: center; /* Center image vertically */
+    justify-content: left;
+    align-items: center;
     overflow: hidden;
     padding: 0px;
 }
 
 .game-details-image {
-    width: 500px; /* Full width but no more */
-    height: 300px; /* Maximum height without distortion */
-    object-fit: fit; /* Cover the available space */
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
 }
 
 p {
-    margin: 20px, 0;
-
+    margin: 20px 0;
 }
 
-.game-link-button{
+.game-link-button {
     margin: 20px 0;
-    background-color: #333; /* Default background color */
-    color: white; /* Default text color */
-    padding: 10px 20px; /* Padding for better touch area */
-    border: none; /* Removes the border */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for color change */
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }

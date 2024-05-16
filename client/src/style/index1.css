@@ -1,11 +1,45 @@
+@media (max-width: 992px) {
+    .games-list-container {
+        padding: 0 20px;
+        width: calc(100% - 40px);
+    }
+
+    .game-card {
+        flex: 1 1 calc(50% - 20px); /* Adjust for 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .games-list-container {
+        padding: 0 10px;
+        width: calc(100% - 20px);
+    }
+
+    .game-card {
+        flex: 1 1 100%;
+        margin: 10px 0;
+    }
+}
+
 body {
     background-color: #f4f4f4;
 }
 
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
 .search-container {
     display: flex;
+    top:-25px;
     justify-content: center;
-    top: -25px;
+    align-items: center;
     position: relative;
 }
 
@@ -23,15 +57,18 @@ body {
     width: 335px;
 }
 
-.fa.fa-search {
-    position: absolute;
-    top: 50%;
-    right: 755px;
-    transform: translateY(-50%);
+.search-container button {
+    margin-left: 10px;
+    height: 35px; /* Set a specific height */
+    padding: 0 10px; /* Adjust padding */
+    line-height: 35px; /* Set line-height to match button height */
     color: #0c0c0c;
     cursor: pointer;
     background: none;
     border: none;
+    display: flex; /* Flexbox for centering the icon */
+    align-items: center; /* Center the icon vertically */
+    justify-content: center; /* Center the icon horizontally */
 }
 
 #psicon {
@@ -44,7 +81,7 @@ body {
 #login {
     position: relative;
     top: -45px;
-    left: 1700px;
+    left: 2100px;
 }
 
 ul {
@@ -86,7 +123,7 @@ button.loggedIn {
     color: white;
     text-decoration: none;
     padding: 5px 10px;
-    margin: 2px;
+    margin-left: 10px;
     border: none;
     font-size: 15px;
     transition: background-color 0.3s ease;

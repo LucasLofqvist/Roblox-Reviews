@@ -11,6 +11,7 @@
 
 @media (max-width: 768px) {
     .games-list {
+        margin: 50px;
         padding: 0 10px; /* Even smaller padding for very small screens */
         width: calc(100% - 20px); /* Adjust width to account for padding */
     }
@@ -134,10 +135,6 @@
     border: none; /* Removes the border */
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for color change */
-}
-
-button.loginPage {
-    background-color: #333;
 }
 
 .go-back-button:hover, .game-link-button:hover {

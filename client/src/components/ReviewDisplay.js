@@ -30,7 +30,8 @@ export const ReviewsDisplay = ({ gameId }) => {
     }, [gameId]);
 
     const handleAddReviewClick = () => {
-        if (!user) {
+        const token = localStorage.getItem('token');
+        if (!user ||!token) {
             alert('Please log in to post a review!');
             navigate("/login");
             return;

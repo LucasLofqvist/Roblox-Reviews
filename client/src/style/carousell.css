@@ -6,22 +6,20 @@
     position: relative;
     max-width: 48rem;
     margin: 0 auto;
+    overflow: hidden; /* Ensure no scrollbars are shown */
 }
 
 .slider {
     position: relative;
     display: flex;
-    aspect-ratio: 16/9;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
-    border-radius: 0.5rem;
+    width: 100%; /* Ensure the slider is 100% width */
+    transition: transform 0.5s ease;
 }
 
 .slide {
     position: relative;
+    min-width: 100%; /* Ensure each slide takes up full width */
+    scroll-snap-align: start;
 }
 
 .slider h2 {
@@ -46,10 +44,8 @@
 }
 
 .slider img {
-    flex: 1 0 100%;
-    scroll-snap-align: start;
+    width: 100%; /* Ensure images take full width */
     object-fit: contain;
-    transition: transform 0.5s ease;
 }
 
 .slider-nav {
@@ -61,6 +57,84 @@
     transform: translateX(-50%);
     z-index: 1;
 }
+.container {
+    padding: 2rem;
+}
+
+.slider-wrapper {
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+    overflow: hidden; /* Ensure no scrollbars are shown */
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    width: 100%; /* Ensure the slider is 100% width */
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    position: relative;
+    min-width: 100%; /* Ensure each slide takes up full width */
+    scroll-snap-align: start;
+}
+
+.slider h2 {
+    position: absolute;
+    top: 17rem;
+    left: 1.5rem; 
+    z-index: 2;
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    font-size: 1.5rem;
+}
+
+.slider h4 {
+    position: absolute;
+    top: 19rem;
+    left: 1rem; 
+    padding: 0.5rem;
+    z-index: 2;
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    font-size: 1rem;
+}
+
+.slider img {
+    width: 100%; /* Ensure images take full width */
+    object-fit: contain;
+}
+
+.slider-nav {
+    display: flex;
+    column-gap: 0.5rem; /* Reduce gap between dots */
+    position: absolute;
+    bottom: 1rem; /* Position the dots inside the slider */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3; /* Ensure dots are above the images */
+}
+
+.slider-nav a {
+    width: 1rem; /* Increase size for better visibility */
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #fff; /* Ensure dots are visible */
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+}
+
+.slider-nav a.active {
+    opacity: 1;
+    background-color: #000; /* Darker color for active state */
+}
+
+.slider-nav a:hover {
+    opacity: 1;
+    background-color: #ccc; /* Change color on hover for better visibility */
+}
 
 .slider-nav a {
     width: 0.5rem;
@@ -69,6 +143,10 @@
     background-color: #fff;
     opacity: 0.75;
     transition: opacity ease 250ms;
+}
+
+.slider-nav a.active {
+    opacity: 1;
 }
 
 .slider-nav a:hover {

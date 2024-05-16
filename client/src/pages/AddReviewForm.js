@@ -52,7 +52,8 @@ export const AddReviewForm = () => {
             <textarea
                 value={reviewText}
                 onChange={(e) => setReviewText(e.target.value)}
-                placeholder="Enter your review"
+                placeholder="Enter your review with max 200 characters!"
+                maxLength={200}
                 required
             />
             <input

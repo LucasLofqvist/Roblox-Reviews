@@ -2,9 +2,9 @@
     background-color: #f4f4f9;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 60vh;
-    margin: 0;
+    align-items: flex-start;
+    height: calc(100vh - 100px);
+    padding-top: 100px;
 }
 
 .signup-body {
@@ -12,14 +12,16 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 480px;
+    width: 80%;
+    max-width: 500px;
 }
 
 .signup-body h2 {
     font-size: x-large;
-    margin:  10px;
+    align-items: center;
+   
 }
+
 .signup-form {
     display: flex;
     flex-direction: column;
@@ -29,24 +31,26 @@
 .signup-form label {
     font-size: large;
     font-weight: bold;
-    margin: 10px;
+    margin: 10px 0;
+    display: block;
 }
 
 .signup-form input, .signup-form button {
     padding: 10px;
-    border-radius: 4px;
     border: 1px solid #ddd;
-    border-radius: 5px;
     width: 100%;
+    border-radius: 5px;
+    width: calc(100%-22px);
+    box-sizing: border-box
 }
 
 .signup-form button {
     background-color: #333;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    border-radius: 5px;
 }
 
 .signup-form button:hover {
@@ -59,31 +63,28 @@
     margin-top: 5px;
 }
 
-.link-button {
+.link-button .signInPage{
     background: none;
     border: none;
     color: #0066cc;
     cursor: pointer;
     padding: 0;
     border-radius: 5px;
+    text-decoration: none;
 }
 
-p{
+.signup-body p {
     margin-top: 20px;
 }
 
-p button.signInPage {
-    background-color: #333;
-    color: white;
-    border: none;
-    display: block;
-    text-decoration: none;
+.signInPage {
+    display: inline-block;  
     padding: 4px 8px;
-    margin: 2px;
+    margin-top: 2px;  
     transition: background-color 0.3s ease;
     border-radius: 5px;
 }
 
-button.signInPage:hover {
+.signInPage:hover {
     background-color: #111;
 }

@@ -22,12 +22,11 @@ const Header = () => {
     
 
     return (
-        <header>
-            <Link to="/" className="homepage"> 
-                <img src={PSicon} alt="PlaySafe Icon" id="psicon" height="85px" width="85px" />
-            </Link>
+        <header className="header">
+                <img className='homepage psicon' src={PSicon} alt="PlaySafe Icon" height="85px" width="85px" />
+
             <Search onSearch={handleSearch} /> 
-            <div id="login">
+            <div className="login">
                 {isLoggedIn || isAdmin ? (
                     <button className='loggedIn' onClick={logout}>Logout</button>
                 ) : (

@@ -2,9 +2,9 @@
     background-color: #f4f4f9;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 60vh;
-    margin: 0;
+    align-items: flex-start;
+    height: calc(100vh - 100px);
+    padding-top: 100px;
 }
 
 .login-body {
@@ -12,13 +12,14 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 480px;
+    width: 80%;
+    max-width: 500px;
 }
 
 .login-body h2 {
     font-size: x-large;
-    margin:  10px;
+    align-items: center;
+   
 }
 
 .login-form {
@@ -30,15 +31,17 @@
 .login-form label {
     font-size: large;
     font-weight: bold;
-    margin: 10px;
+    margin: 10px 0;
+    display: block;
 }
 
 .login-form input, .login-form button {
     padding: 10px;
-    border-radius: 4px;
     border: 1px solid #ddd;
     width: 100%;
     border-radius: 5px;
+    width: calc(100%-22px);
+    box-sizing: border-box
 }
 
 .login-form button {
@@ -60,31 +63,28 @@
     margin-top: 5px;
 }
 
-.link-button {
+.link-button .loginPage{
     background: none;
     border: none;
     color: #0066cc;
     cursor: pointer;
     padding: 0;
     border-radius: 5px;
+    text-decoration: none;
 }
 
-p {
+.login-body p {
     margin-top: 20px;
 }
 
-button.loginPage {
-    background-color: #333;
-    color: white;
-    border: none;
-    display: block;
-    text-decoration: none;
+.loginPage {
+    display: inline-block;  
     padding: 4px 8px;
-    margin: 2px;
+    margin-top: 2px;  
     transition: background-color 0.3s ease;
     border-radius: 5px;
 }
 
-button.loginPage:hover {
+.loginPage:hover {
     background-color: #111;
 }

@@ -48,44 +48,57 @@ export const AddReviewForm = () => {
 
     return (
         <div className="add-review-container">
-            <form onSubmit={handleSubmit} className="review-form">
-            <textarea
-                value={reviewText}
-                onChange={(e) => setReviewText(e.target.value)}
-                placeholder="Enter your review with max 200 characters!"
-                maxLength={200}
-                required
-            />
-            <input
-                type="number"
-                value={rating}
-                onChange={(e) => setRating(parseFloat(e.target.value))}
-                min="1"
-                max="10"
-                required
-            />
-            <label>
-                Violence:
-                <input
-                    type="checkbox"
-                    checked={violence}
-                    onChange={(e) => setViolence(e.target.checked)}
+            <div className="review-body">
+                <h2>Your review is important✍️</h2>
+                <form onSubmit={handleSubmit} className="review-form">
+                <textarea
+                    value={reviewText}
+                    onChange={(e) => setReviewText(e.target.value)}
+                    placeholder="Enter your review with max 200 characters!"
+                    maxLength={200}
+                    rows={10}
+                    required
                 />
-            </label>
-            <label>
-                Suggested Age:
-                <select
-                    value={suggestedAge}
-                    onChange={(e) => setSuggestedAge(e.target.value)}
-                    required>
-                    <option value="All">All</option>
-                    <option value="9+">9+</option>
-                    <option value="13+">13+</option>
-                    <option value="17+">17+</option>
-                </select>
-            </label>
-            <button type="submit">Submit Review</button>
-        </form>
+                <div className="input-container">
+                <label>
+                    Rating: 
+                        <input
+                        type="number"
+                        value={rating}
+                        onChange={(e) => setRating(parseFloat(e.target.value))}
+                        min="1"
+                        max="10"
+                        required
+                    />
+                </label>
+                </div>
+                <div className="checkbox-container">
+                    <label>
+                        Violence: 
+                        <input
+                            type="checkbox"
+                            checked={violence}
+                            onChange={(e) => setViolence(e.target.checked)}
+                        />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Suggested&nbsp;Age:
+                        <select
+                            value={suggestedAge}
+                            onChange={(e) => setSuggestedAge(e.target.value)}
+                            required>
+                            <option value="All">All</option>
+                            <option value="9+">9+</option>
+                            <option value="13+">13+</option>
+                            <option value="17+">17+</option>
+                        </select>
+                    </label>
+                </div>
+                <button type="submit">Submit Review</button>
+            </form>
+            </div>
         </div>
     );
 };

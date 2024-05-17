@@ -12,6 +12,15 @@ const Header = () => {
         navigate(`/gameList/?search=${encodeURIComponent(searchTerm)}`);
     }
 
+    const handlePreSignupRouteStorageAndNavigate = (path) => {
+        const currentPath = window.location.pathname;
+        if (!currentPath.includes('/login') && !currentPath.includes('/signup')) {
+            sessionStorage.setItem('preLoginRoute', currentPath);
+        }
+        navigate(path);
+    };
+    
+
     return (
         <header>
             <Link to="/" className="homepage"> 
@@ -23,8 +32,8 @@ const Header = () => {
                     <button className='loggedIn' onClick={logout}>Logout</button>
                 ) : (
                     <>
-                    <Link to="/login"> <button className='loginButton'> Login</button> </Link>
-                    <Link to="/signUp"> <button className='signInButton'> Sign up</button> </Link>
+                    <button className='loginButton' onClick={() => handlePreSignupRouteStorageAndNavigate('/login')}>Login</button>
+                    <button className='signInButton' onClick={() => handlePreSignupRouteStorageAndNavigate('/signup')}>Sign up</button>
                     </>
                 )}
             </div>

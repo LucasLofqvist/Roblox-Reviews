@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { FetchRouter } from '../components/FetchRouter';
 import { jwtDecode } from "jwt-decode";
 
-
 export const AuthContext = createContext(null);
 
 export const useAuth = () => useContext(AuthContext);
@@ -57,21 +56,29 @@ export const AuthProvider = ({ children }) => {
                 body: JSON.stringify({ username, password }),
             });
             if (response.token) {
-                localStorage.setItem('token', response.token);  // Store the token
-                localStorage.setItem('userDetails', JSON.stringify({ username }));  // Store user details
-                setIsLoggedIn(true);  // Update login state
-                setUser({ username });  // Set user details
+                localStorage.setItem('token', response.token);
+                localStorage.setItem('userDetails', JSON.stringify({ username }));
+                setIsLoggedIn(true);
+                setUser({ username });
                 setLogoutTimer(response.token);
-                setTimeout(() => navigate(-1), 100);  // Navigate to the previous page ensure the update
+    
+                const preLoginRoute = sessionStorage.getItem('preLoginRoute');
+                console.log("Pre-login route retrieved:", preLoginRoute); // Debug log
+                sessionStorage.removeItem('preLoginRoute');
+                if (preLoginRoute && !preLoginRoute.includes('/signup') && !preLoginRoute.includes('/login')) {
+                    setTimeout(() => navigate(preLoginRoute), 100);
+                } else {
+                    navigate(-1);
+                }
             } else {
                 throw new Error(response.message || 'Login failed');
             }
         } catch (err) {
             console.error('Login error:', err);
-            throw err;  // Rethrow to handle in component
+            throw err;
         }
     };
-
+    
 
     const logout = () => {
         localStorage.removeItem('token');

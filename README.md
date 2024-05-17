@@ -1,7 +1,7 @@
 # Roblox-Reviews
 
 ## Overview
-Fullstack Project - Web application to help parents get a better understanding of the Roblox games that their children might be playing.
+Our web application is designed to assist parents in gaining a comprehensive understanding of the Roblox games their children are playing. Since Roblox has a large audience of younger players, it’s important for parents to be well-informed about the content and safety of these games. This application provides detailed insights, reviews, and ratings for various Roblox games, allowing parents to make informed decisions about their children's gaming activities.
 
 ## Technical Solutions
 - **Frontend**: React.js is used to build the user interface for the client-side of the application.

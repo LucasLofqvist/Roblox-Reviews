@@ -65,7 +65,7 @@ export const ReviewsDisplay = ({ gameId }) => {
                     </div>
                     <div 
                         className="rating-stars"
-                        style={{ '--rating': `${review.rating * 10}%` }} />
+                        style={{ '--rating': `${(review.rating / 10) * 100}%` }} />
                 </div>
             )) : <p>No reviews yet</p>}
         </div>

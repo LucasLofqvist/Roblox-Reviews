@@ -5,19 +5,17 @@
 footer {
     position: relative;
     background-color: #f4f4f4; 
-    padding: 20px; 
+    padding: 20px 0; 
     text-align: center;
+    margin: 0 3%;
     left: 0;
     bottom: 0;
-    width: 100%; 
     height: auto;
 }
 
 footer hr {
     border: none; 
     border-top: 1px solid #ccc; 
-    margin: 10px 0; 
-    width: 98%; 
 }
 
 .footer-content {
@@ -38,8 +36,7 @@ footer hr {
     flex-grow: 1; 
 }
 
-.footer-icons {
-    position: relative;
-    right: 50px;
-    font-size: 20px; 
+span {
+    color: #000;
+    padding-right: 10px;
 }

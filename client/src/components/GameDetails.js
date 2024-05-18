@@ -36,11 +36,11 @@ const GameDetails = () => {
             {loading ? <div>Loading...</div> : error ? <div>Error: {error}</div> :
             game && (
                 <>
-                    <h2>{game.title}</h2>
+                    <h2 className='gameTitle'>{game.title}</h2>
                     <div className="game-details-image-wrapper">
                         <img src={game.thumbnailUrl} alt={game.title} className="game-details-image" />
                     </div>
-                    <p>{game.description}</p>
+                    <p className='gameDesc'>{game.description}</p>
                     {game.gameUrl && <button onClick={() => window.open(game.gameUrl, "_blank")} className="game-link-button">Play Now</button>}
                 
                     <ReviewsDisplay gameId={game._id} gameTitle={gameId} />

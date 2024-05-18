@@ -129,6 +129,7 @@ button.loggedIn:hover {
 
     .search-container {
         margin: 10px 0;
+        margin-left: 40px;
     }
 
     .login {

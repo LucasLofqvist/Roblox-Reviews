@@ -9,7 +9,7 @@ const GameDetailPage = ({ gameTitle }) => {
 
     return (
         <div>
-            <button className='go-back-button' onClick={() => navigate(-1)} >Go Back</button>
+            <button className='go-back-button' onClick={() => navigate(`/gameList`)} >Go Back</button>
             <GameDetails gameTitle={gameTitle} />
         </div>
     );

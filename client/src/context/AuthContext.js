@@ -47,6 +47,12 @@ export const AuthProvider = ({ children }) => {
         setTimeout( () => logout(), expTime)
     }
 
+    const postAuthRedirect = () => {
+        const preLoginRoute = sessionStorage.getItem('preLoginRoute');
+        sessionStorage.removeItem('preLoginRoute');
+        navigate(preLoginRoute || '/')
+    }
+
     // AuthContext.js
     const login = async (username, password) => {
         try {
@@ -61,15 +67,7 @@ export const AuthProvider = ({ children }) => {
                 setIsLoggedIn(true);
                 setUser({ username });
                 setLogoutTimer(response.token);
-    
-                const preLoginRoute = sessionStorage.getItem('preLoginRoute');
-                console.log("Pre-login route retrieved:", preLoginRoute); // Debug log
-                sessionStorage.removeItem('preLoginRoute');
-                if (preLoginRoute && !preLoginRoute.includes('/signup') && !preLoginRoute.includes('/login')) {
-                    setTimeout(() => navigate(preLoginRoute), 100);
-                } else {
-                    navigate(-1);
-                }
+                postAuthRedirect();
             } else {
                 throw new Error(response.message || 'Login failed');
             }

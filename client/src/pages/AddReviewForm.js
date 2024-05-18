@@ -4,10 +4,14 @@ import { useAuth } from '../context/AuthContext';
 import { authFetchRouter } from '../components/FetchRouter';
 import { useNavigate } from 'react-router-dom';
 import '../style/addReview.css';
+import { useLocation } from 'react-router-dom';
 
 export const AddReviewForm = () => {
     const { gameId } = useParams();
     console.log(gameId);
+    const location = useLocation()
+    const gameTitle = location.state?.gameTitle
+    console.log('gameTitle: ' + gameTitle);
     const { user } = useAuth();  
     const [reviewText, setReviewText] = useState('');
     const [rating, setRating] = useState(5);
@@ -36,7 +40,7 @@ export const AddReviewForm = () => {
         
             if (response.success) {
                 alert('Review added successfully!');
-                navigate(-1);
+                navigate(`/games/${gameTitle}`);
             } else {
                 alert(`Failed to add review: ${response.message}`);
             }

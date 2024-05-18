@@ -3,7 +3,7 @@ import { FetchRouter } from './FetchRouter';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext, useAuth } from '../context/AuthContext';
 
-export const ReviewsDisplay = ({ gameId }) => {
+export const ReviewsDisplay = ({ gameId, gameTitle }) => {
     const [reviews, setReviews] = useState([]);
     const { user } = useAuth(AuthContext);
     const navigate = useNavigate()
@@ -32,16 +32,15 @@ export const ReviewsDisplay = ({ gameId }) => {
     const handleAddReviewClick = () => {
         const token = localStorage.getItem('token');
         if (!user ||!token) {
+            sessionStorage.setItem('preLoginRoute', `/games/${gameId}/add-review`);
             alert('Please log in to post a review!');
-            navigate("/login");
-            return;
+            navigate(`/login`, { state: { intendedAction: 'add-review', gameTitle } });
         } else {
             const hasReviewed = reviews.some(review => review.user.username === user.username);
             if (hasReviewed) {
                 alert('You have already submitted a review for this game!');
-                return
             } else {
-                navigate(`/games/${gameId}/add-review`);
+                navigate(`/games/${gameId}/add-review`, {state: {gameTitle}});
             }
         }
     }

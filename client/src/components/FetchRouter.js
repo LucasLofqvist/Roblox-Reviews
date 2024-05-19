@@ -1,6 +1,6 @@
+const baseUrl = 'https://playsafe.onrender.com';
 export const FetchRouter = async (url, options = {}) => {
     try {
-        const baseUrl = 'https://playsafe.onrender.com';
         const response = await fetch(`${baseUrl}/${url}`, { ...options });
         const data = await response.json();
         return data;

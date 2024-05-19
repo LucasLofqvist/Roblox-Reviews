@@ -1,6 +1,6 @@
 export const FetchRouter = async (url, options = {}) => {
     try {
-        const baseUrl = 'http://localhost:3000';
+        const baseUrl = 'https://playsafe.onrender.com';
         const response = await fetch(`${baseUrl}/${url}`, { ...options });
         const data = await response.json();
         return data;

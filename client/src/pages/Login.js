@@ -14,7 +14,6 @@ function Login() {
         event.preventDefault();
         try {
             await login(username, password);
-            alert("You are now logged in and enjoy!");
             return
         } catch (err) {
             setError('Failed to login: ' + err.message);

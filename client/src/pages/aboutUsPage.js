@@ -13,11 +13,11 @@ return (
             <div className="personInfo">
                 <h5>Rickard Sturesson</h5>
                 <p><strong>Team-Leader, Back-end Development</strong></p>
-                <p>Hey there, I'm xx! Currently knee-deep in xx and xx for this Fullstack project. When I'm not coding, you'll find me soaking up good times with friends, 
-                    jamming out to music, hitting up concerts, or cruising on my skateboard.
+                <p>Hey there, I'm Rickard! My role in this Fullstack project involves backend development and security/authentication. As the team leader, I also focus on project oversight and testing.
+                    When I'm not coding, you'll find me spending quality time with my family, baking sourdough bread, playing volleyball, or going for runs
                     <br></br>
                     <br></br>
-                    <strong>Favorite Show:</strong> xx</p>
+                    <strong>Favorite Show:</strong> Frank & Kastaniegaarden</p>
             </div>
         </div>
     
@@ -44,7 +44,7 @@ return (
                     jamming out to music, hitting up concerts, or cruising on my skateboard.
                     <br></br>
                     <br></br>
-                    <strong>Favorite Show:</strong> Big Bang Theory</p>
+                    <strong>Favorite Show:</strong> Supernatural</p>
             </div>
         </div>
 

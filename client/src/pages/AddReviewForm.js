@@ -1,23 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { authFetchRouter } from '../components/FetchRouter';
 import { useNavigate } from 'react-router-dom';
 import '../style/addReview.css';
-import { useLocation } from 'react-router-dom';
 
-export const AddReviewForm = () => {
+const AddReviewForm = () => {
     const { gameId } = useParams();
-    console.log(gameId);
-    const location = useLocation()
-    const gameTitle = location.state?.gameTitle
-    console.log('gameTitle: ' + gameTitle);
     const { user } = useAuth();  
+    const username = user.username
+
+    const navigate = useNavigate();
+    const gameTitle= sessionStorage.getItem('gameTitle') || '';
     const [reviewText, setReviewText] = useState('');
     const [rating, setRating] = useState(5);
     const [violence, setViolence] = useState(false);
     const [suggestedAge, setSuggestedAge] = useState('All');
-    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!gameTitle) {
+            console.warn('gameTitle is not in sessionStorage');
+        } else {
+            console.log('gameTitle: ' + gameTitle);
+            sessionStorage.setItem('gameTitle', gameTitle);  // Ensure gameTitle is set in sessionStorage
+        }
+    }, [gameTitle]);
+
+    useEffect(() => {
+        return () => {
+            sessionStorage.removeItem('gameTitle');  // Clean up sessionStorage when component unmounts
+        };
+    }, []);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -43,17 +57,20 @@ export const AddReviewForm = () => {
                 navigate(`/games/${gameTitle}`);
             } else {
                 alert(`Failed to add review: ${response.message}`);
+                navigate(`/games/${gameTitle}`);
             }
         } catch (error) {
             console.error('Failed to add review:', error);
             alert('Failed to add review: ' + error.message);
+            navigate(`/games/${gameTitle}`);
         }
     }        
 
     return (
         <div className="add-review-container">
             <div className="review-body">
-                <h2>Your review is important✍️</h2>
+                <h1>{gameTitle}</h1>
+                <h2>Dear {username}, your review is important✍️</h2>
                 <form onSubmit={handleSubmit} className="review-form">
                 <textarea
                     value={reviewText}
@@ -88,7 +105,7 @@ export const AddReviewForm = () => {
                 </div>
                 <div>
                     <label>
-                            Suggested Age:
+                            Suggested&nbsp;Age:
                         <select
                             value={suggestedAge}
                             onChange={(e) => setSuggestedAge(e.target.value)}
@@ -106,3 +123,5 @@ export const AddReviewForm = () => {
         </div>
     );
 };
+
+export default AddReviewForm

@@ -1,11 +1,13 @@
 // GameListsPage.js
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import GamesList from '../components/GamesList';
 import {FetchRouter} from '../components/FetchRouter';
 import '../style/gameLayout.css';
 
 const GameListsPage = () => {
+    const navigate = useNavigate();
     const [games, setGames] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -30,6 +32,12 @@ const GameListsPage = () => {
         game.title.toLowerCase().includes(searchTerm.toLowerCase())
     ) : games;
 
+    useEffect(() => {
+        if (!loading && filteredGames.length === 0) {
+            navigate('/404');
+        }
+    }, [loading, filteredGames, navigate]);
+
     if (loading) return <div>Loading games...</div>;
     if (error) return <div>Error: {error}</div>;
 
@@ -37,9 +45,7 @@ const GameListsPage = () => {
         <div className='game-list-container'>
             {filteredGames.length > 0 ? (
                 <GamesList games={filteredGames} />
-            ) : (
-                <div className="no-results">No games found matching your search.</div>
-            )}
+            ) : null }
         </div>
     );
 };

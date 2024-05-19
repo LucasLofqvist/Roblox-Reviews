@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FetchRouter } from './FetchRouter';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext, useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 export const ReviewsDisplay = ({ gameId, gameTitle }) => {
     const [reviews, setReviews] = useState([]);
-    const { user } = useAuth(AuthContext);
-    const navigate = useNavigate()
+    const { user } = useAuth();
+    const navigate = useNavigate();
 
-    
     useEffect(() => {
         const fetchReviews = async () => {
             try {
@@ -29,21 +28,32 @@ export const ReviewsDisplay = ({ gameId, gameTitle }) => {
         fetchReviews();
     }, [gameId]);
 
-    const handleAddReviewClick = () => {
-        const token = localStorage.getItem('token');
-        if (!user ||!token) {
+    const handleAddReviewClick = async () => {
+        const token = sessionStorage.getItem('token');
+        sessionStorage.setItem('gameTitle', gameTitle);
+        sessionStorage.setItem('gameId', gameId);
+
+        if (!user || !token) {
             sessionStorage.setItem('preLoginRoute', `/games/${gameId}/add-review`);
             alert('Please log in to post a review!');
-            navigate(`/login`, { state: { intendedAction: 'add-review', gameTitle } });
+            navigate(`/login`);
         } else {
-            const hasReviewed = reviews.some(review => review.user.username === user.username);
-            if (hasReviewed) {
-                alert('You have already submitted a review for this game!');
-            } else {
-                navigate(`/games/${gameId}/add-review`, {state: {gameTitle}});
+            try {
+                const reviewsData = await FetchRouter(`api/reviews/${gameId}`);
+                const hasReviewed = reviewsData[0]?.reviews.some(review => review.user.username === user.username);
+
+                if (hasReviewed) {
+                    alert('You have already submitted a review for this game!');
+                } else {
+                    navigate(`/games/${gameId}/add-review`);
+                }
+            } catch (error) {
+                console.error('Error checking reviews:', error);
+                alert('An error occurred while checking your review status!');
+                navigate(`/games/${gameId}`);
             }
         }
-    }
+    };
 
     const currentYear = new Date().getFullYear();
     
@@ -66,7 +76,7 @@ export const ReviewsDisplay = ({ gameId, gameTitle }) => {
                         className="rating-stars"
                         style={{ '--rating': `${(review.rating / 10) * 100}%` }} />
                 </div>
-            )) : <p>No reviews yet</p>}
+            )) : <p className="review-not-found">No reviews yet</p>}
         </div>
     );
 };

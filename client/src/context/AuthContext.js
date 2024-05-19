@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FetchRouter } from '../components/FetchRouter';
 import { jwtDecode } from "jwt-decode";
@@ -23,11 +23,15 @@ export const AuthProvider = ({ children }) => {
             return false;
         }
     }
+    const setLogoutTimer = useCallback((token) => {
+        const { exp } = jwtDecode(token);
+        const expTime = exp * 1000 - Date.now()
+        setTimeout( () => logout(), expTime)
+    }, []);
 
-    // Initialize isLoggedIn based on the presence of a token in localStorage
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        const userDetails = localStorage.getItem('userDetails');
+        const token = sessionStorage.getItem('token');
+        const userDetails = sessionStorage.getItem('userDetails');
 
         if (token && !isTokenExpired) {
             setIsLoggedIn(true);
@@ -36,24 +40,37 @@ export const AuthProvider = ({ children }) => {
             }
             setLogoutTimer(token);
         } else {
-            localStorage.removeItem('token');
-            localStorage.removeItem('userDetails');
+            sessionStorage.removeItem('token');
+            sessionStorage.removeItem('userDetails');
         }
-    }, []);
+    }, [setLogoutTimer]);
 
-    const setLogoutTimer = (token) => {
-        const { exp } = jwtDecode(token);
-        const expTime = exp * 1000 - Date.now()
-        setTimeout( () => logout(), expTime)
-    }
-
-    const postAuthRedirect = () => {
+    const postAuthRedirect = async () => {
         const preLoginRoute = sessionStorage.getItem('preLoginRoute');
-        sessionStorage.removeItem('preLoginRoute');
-        navigate(preLoginRoute || '/')
-    }
+        const userDetails = JSON.parse(sessionStorage.getItem('userDetails'));
+        const gameId = sessionStorage.getItem('gameId');
+        const gameTitle = sessionStorage.getItem('gameTitle');
 
-    // AuthContext.js
+        if (preLoginRoute && gameId && gameTitle) {
+            try {
+                const reviewsData = await FetchRouter(`api/reviews/${gameId}`);
+                const hasReviewed = reviewsData[0]?.reviews.some(review => review.user.username === userDetails.username);
+                if (hasReviewed) {
+                    alert('You have already submitted a review for this game!');
+                    navigate(`/games/${gameTitle}`);
+                } else {
+                    navigate(`/games/${gameId}/add-review`);
+                }
+            } catch (error) {
+                console.error('Error checking reviews:', error);
+                alert('An error occurred while checking your review status. Please try again.');
+                navigate(`/games/${gameId}`);
+            }
+        } else {
+            navigate('/');
+        }
+    };
+
     const login = async (username, password) => {
         try {
             const response = await FetchRouter(`api/users/login`, {
@@ -62,8 +79,8 @@ export const AuthProvider = ({ children }) => {
                 body: JSON.stringify({ username, password }),
             });
             if (response.token) {
-                localStorage.setItem('token', response.token);
-                localStorage.setItem('userDetails', JSON.stringify({ username }));
+                sessionStorage.setItem('token', response.token);
+                sessionStorage.setItem('userDetails', JSON.stringify({ username }));
                 setIsLoggedIn(true);
                 setUser({ username });
                 setLogoutTimer(response.token);
@@ -77,10 +94,9 @@ export const AuthProvider = ({ children }) => {
         }
     };
     
-
     const logout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('userDetails')
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('userDetails')
         setIsLoggedIn(false);
         setUser(null);
         navigate('/');

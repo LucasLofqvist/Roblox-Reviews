@@ -21,8 +21,13 @@
     max-width: 600px;
 }
 
+.review-body h1 {
+    font-size: 24px;
+    margin: 10px;
+}
+
 .review-body h2 {
-    font-size: x-large;
+    font-size: 20px;
     margin: 10px;
 }
 

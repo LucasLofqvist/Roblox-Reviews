@@ -7,8 +7,9 @@ import { AuthProvider } from '../context/AuthContext';
 import Signup from '../pages/SignUp';
 import Login from '../pages/Login';
 import HomePage from '../pages/HomePage';
-import { AddReviewForm } from '../pages/AddReviewForm';
+import AddReviewForm from '../pages/AddReviewForm';
 import About from '../pages/aboutUsPage'
+import NotFoundPage from '../pages/NotFoundPage';
  
 const App = () => {
     return (
@@ -24,6 +25,7 @@ const App = () => {
                             <Route path="/signup" element= { <Signup />} />
                             <Route path="/login" element= { <Login />} />
                             <Route path="/about" element= { <About />} />
+                            <Route path="/404" element={<NotFoundPage />} />
                         </Routes>
                     </Layout>
                 </AuthProvider>  

@@ -13,7 +13,7 @@ function Login() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await login(username, password);  // Use login from AuthContext
+            await login(username, password);
             alert("You are now logged in and enjoy!");
             return
         } catch (err) {

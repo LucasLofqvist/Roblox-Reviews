@@ -88,7 +88,7 @@ export const AddReviewForm = () => {
                 </div>
                 <div>
                     <label>
-                        Suggested&nbsp;Age:
+                            Suggested Age:
                         <select
                             value={suggestedAge}
                             onChange={(e) => setSuggestedAge(e.target.value)}

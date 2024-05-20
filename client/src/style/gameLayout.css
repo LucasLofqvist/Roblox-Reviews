@@ -58,22 +58,6 @@
     margin: 0 3%;
 }
 
-.go-back-button {
-    margin: 20px 0;
-    margin-left: 50px;
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.go-back-button:hover, .game-link-button:hover {
-    background-color: #111;
-    color: #ffffff;
-}
-
 .game-details-image-wrapper {
     display: flex;
     justify-content: center;
@@ -95,10 +79,15 @@
     text-align: center;
 }
 
-.game-link-button {
+.button-container {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.game-link-button {
+    display: flex;
+    justify-content: center;
     margin: 0;
     background-color: #333;
     color: white;
@@ -106,8 +95,9 @@
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
 }
 
-.game-details .game-link-button {
-    justify-content: center;
+.game-button {
+    border: none;
 }

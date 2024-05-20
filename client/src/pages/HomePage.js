@@ -74,20 +74,18 @@ const HomePage = () => {
                     >
                         {games.map((game, index) => (
                             <div key={index} className="slide">
-                                <Link to={`/games/${encodeURIComponent(game.title)}`}>
-                                    <h2>{game.title}</h2>
-                                </Link>
+                                <h2>{game.title}</h2>
                                 <h4>{game.description}</h4>
-                                <img src={game.thumbnailUrl} alt={game.title} />
+                                <Link to={`/games/${encodeURIComponent(game.title)}`}><img src={game.thumbnailUrl} alt={game.title} />
+                                </Link>
                             </div>
                         ))}
                         {games.length > 0 && (
                             <div className="slide">
-                                <Link to={`/games/${encodeURIComponent(games[0].title)}`}>
-                                    <h2>{games[0].title}</h2>
-                                </Link>
+                                <h2>{games[0].title}</h2>
                                 <h4>{games[0].description}</h4>
-                                <img src={games[0].thumbnailUrl} alt={games[0].title} />
+                                <Link to={`/games/${encodeURIComponent(games.title)}`}><img src={games[0].thumbnailUrl} alt={games[0].title} />
+                                </Link>
                             </div>
                         )}
                     </div>

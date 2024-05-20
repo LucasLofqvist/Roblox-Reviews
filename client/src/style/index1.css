@@ -49,7 +49,7 @@ body {
 
 .search-container {
     display: flex;
-    flex-grow: 0.5;
+    /* flex-grow: 0.5; */
     justify-content: center;
 }
 
@@ -147,7 +147,7 @@ button.loggedIn:hover {
     }
 }
 
-ul {
+.nav-ul {
     list-style-type: none;
     margin: 3%;
     padding: 0;
@@ -155,7 +155,7 @@ ul {
     background-color: #333;
 }
 
-li {
+.nav-li {
     float: left;
 }
 

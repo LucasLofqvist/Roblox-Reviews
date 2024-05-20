@@ -104,3 +104,20 @@
     font-size: 0.9rem;
     margin-top: 5px;
 }
+
+.user-details {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+}
+
+.user-name {
+    margin: 0;
+    padding: 0;
+}
+
+.user-age {
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+}

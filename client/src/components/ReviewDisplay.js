@@ -66,7 +66,10 @@ export const ReviewsDisplay = ({ gameId, gameTitle }) => {
             </h3>
             {reviews.length ? reviews.map((review, index) => (
                 <div key={index} className="review-card">
-                    <h4>{review.user.username}   {currentYear - review.user.birthYear}</h4>
+                    <div className="user-details">
+                        <h4 className="user-name">{review.user.username}</h4>
+                        <h4 className="user-age">Age: {currentYear - review.user.birthYear}</h4>
+                    </div>
                     <p className="review-text">{review.reviewText}</p>
                     <div className="review-details">
                         <span className={`violence-indicator ${review.violence ? 'violence-yes' : 'violence-no'}`}>Violence: {review.violence ? 'Yes' : 'No'}</span>

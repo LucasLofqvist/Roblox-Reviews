@@ -6,19 +6,19 @@
     position: relative;
     max-width: 48rem;
     margin: 0 auto;
-    overflow: hidden; /* Ensure no scrollbars are shown */
+    overflow: hidden;
 }
 
 .slider {
     position: relative;
     display: flex;
-    width: 100%; /* Ensure the slider is 100% width */
+    width: 100%;
     transition: transform 0.5s ease;
 }
 
 .slide {
     position: relative;
-    min-width: 100%; /* Ensure each slide takes up full width */
+    min-width: 100%;
     scroll-snap-align: start;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .slider img {
-    width: 100%; /* Ensure images take full width */
+    width: 100%;
     object-fit: contain;
 }
 
@@ -65,19 +65,19 @@
     position: relative;
     max-width: 48rem;
     margin: 0 auto;
-    overflow: hidden; /* Ensure no scrollbars are shown */
+    overflow: hidden;
 }
 
 .slider {
     position: relative;
     display: flex;
-    width: 100%; /* Ensure the slider is 100% width */
+    width: 100%;
     transition: transform 0.5s ease;
 }
 
 .slide {
     position: relative;
-    min-width: 100%; /* Ensure each slide takes up full width */
+    min-width: 100%;
     scroll-snap-align: start;
 }
 
@@ -103,37 +103,37 @@
 }
 
 .slider img {
-    width: 100%; /* Ensure images take full width */
+    width: 100%;
     object-fit: contain;
 }
 
 .slider-nav {
     display: flex;
-    column-gap: 0.5rem; /* Reduce gap between dots */
+    column-gap: 0.5rem;
     position: absolute;
-    bottom: 1rem; /* Position the dots inside the slider */
+    bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 3; /* Ensure dots are above the images */
+    z-index: 3;
 }
 
 .slider-nav a {
-    width: 1rem; /* Increase size for better visibility */
+    width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    background-color: #fff; /* Ensure dots are visible */
+    background-color: #fff;
     opacity: 0.75;
     transition: opacity ease 250ms;
 }
 
 .slider-nav a.active {
     opacity: 1;
-    background-color: #000; /* Darker color for active state */
+    background-color: #000;
 }
 
 .slider-nav a:hover {
     opacity: 1;
-    background-color: #ccc; /* Change color on hover for better visibility */
+    background-color: #ccc;
 }
 
 .slider-nav a {

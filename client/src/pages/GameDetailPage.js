@@ -1,15 +1,14 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import GameDetails from '../components/GameDetails';
 import '../style/gameReview.css';
 
 
 const GameDetailPage = ({ gameTitle }) => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     return (
         <div>
-            <button className='go-back-button' onClick={() => navigate(`/gameList`)} >Go Back</button>
             <GameDetails gameTitle={gameTitle} />
         </div>
     );

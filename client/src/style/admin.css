@@ -1,0 +1,7 @@
+.admin-page {
+    display: flex;
+    padding: 0;
+    margin: 0 3%;
+    height: calc(100vh - 100px);
+    border: 1px solid yellow;
+}

@@ -1,28 +1,26 @@
-/* Game List and Card Styles */
 .games-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 50px;
-    width: calc(100% - 100px);
+    margin: 10px auto;
+    width: 94%;
     padding: 0;
 }
 
 .game-card {
-    flex: 1 1 calc(25% - 20px); /* Adjust the flex-basis to account for any margins */
+    flex: 1 1 calc(25% - 20px);
     margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     border: 1px solid #ccc;
-    padding: 20px;
     border-radius: 8px;
     box-sizing: border-box;
 }
 
 .game-image-wrapper {
     width: 100%;
+    border-radius: 8px 8px 0 0;
     height: auto;
     overflow: hidden;
     display: flex;
@@ -42,16 +40,12 @@
 }
 
 .game-title {
-    margin-top: 10px;
+    margin: 5px 2px 2px 0;
     text-align: center;
 }
 
 .gameTitle {
     text-align: center;
-}
-
-.game-stats {
-    margin-top: 10px;
 }
 
 .game-details {
@@ -71,7 +65,6 @@
     max-width: 500px;
     height: auto;
     object-fit: cover;
-
 }
 
 .gameDesc {

@@ -1,23 +1,22 @@
-/* game-reviews layout */
 .review-card {
-    background-color: #ffffff;  /* Light background for the card */
-    border: 1px solid #e0e0e0;  /* Light grey border */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* Subtle shadow for depth */
-    padding: 20px;  /* Spacing inside the card */
-    margin-bottom: 20px;  /* Space between each card */
-    border-radius: 8px;  /* Rounded corners */
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
 }
 
 .review-card h4 {
-    color: #333;  /* Dark color for contrast */
-    font-size: 18px;  /* Larger text for the reviewer's name */
-    margin-bottom: 0px;  /* Spacing after the name */
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 0px;
 }
 
 .review-card p {
-    color: #666;  /* Medium grey for the review text */
-    font-size: 14px;  /* Readable text size */
-    line-height: 1.6;  /* Spacing between lines for readability */
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .review-rating {
@@ -66,7 +65,6 @@
     overflow: hidden;
 }
 
-/* Styles for the violence indicator */
 .violence-indicator {
     font-weight: bold;
     padding: 3px 6px;
@@ -77,21 +75,20 @@
 }
 
 .violence-yes {
-    background-color: #c0392b; /* Red for violence present */
+    background-color: #c0392b;
 }
 
 .violence-no {
-    background-color: #27ae60; /* Green for no violence */
+    background-color: #27ae60;
 }
 
-/* Styles for the suggested age */
 .suggested-age {
-    background-color: #ecf0f1; /* Light grey background */
+    background-color: #ecf0f1;
     padding: 3px 6px;
     border-radius: 5px;
     display: inline-block;
     font-weight: bold;
-    color: #ec0f0f; /* Dark text for readability */
+    color: #ec0f0f;
 }
 
 .add-review-button{

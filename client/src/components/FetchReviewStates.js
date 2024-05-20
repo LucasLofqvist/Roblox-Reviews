@@ -35,8 +35,8 @@ const FetchReviewStats = ({ gameId }) => {
 
     return (
         <div className="review-stats">
-            <p>Average Rating: {reviewStats.averageRating}</p>
-            <p>Total Reviews: {reviewStats.totalReviews}</p>
+            <p>Average Rating: {reviewStats.averageRating} | Total Reviews: {reviewStats.totalReviews}</p>
+            {/* <p></p> */}
         </div>
     );
 };

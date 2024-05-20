@@ -79,12 +79,20 @@ export const AuthProvider = ({ children }) => {
                 body: JSON.stringify({ username, password }),
             });
             if (response.token) {
+                const decodeToken = jwtDecode(response.token);
+                const userRole = decodeToken.role;
+
                 sessionStorage.setItem('token', response.token);
-                sessionStorage.setItem('userDetails', JSON.stringify({ username }));
+                sessionStorage.setItem('userDetails', JSON.stringify({ username, role: userRole }));
                 setIsLoggedIn(true);
-                setUser({ username });
+                setUser({ username, role: userRole });
                 setLogoutTimer(response.token);
-                postAuthRedirect();
+
+                if( userRole === 'Moderator'){
+                    navigate('/admin');
+                } else {
+                    postAuthRedirect();
+                }
             } else {
                 throw new Error(response.message || 'Login failed');
             }

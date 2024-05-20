@@ -28,7 +28,14 @@ const App = () => {
                             <Route path="/login" element= { <Login />} />
                             <Route path="/about" element= { <About />} />
                             <Route path="/404" element={<NotFoundPage />} />
-                            <ProtectedRoute path="/admin" component={AdminDashboard} allowedRoles={['Moderator']} />
+                            <Route
+                                path="/admin"
+                                element={
+                                    <ProtectedRoute allowedRoles={['Moderator']}>
+                                        <AdminDashboard />
+                                    </ProtectedRoute>
+                                }
+                            />
                         </Routes>
                     </Layout>
                 </AuthProvider>  

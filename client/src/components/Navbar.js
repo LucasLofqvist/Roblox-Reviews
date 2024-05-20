@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext';
 
 const NavBar = () => {
-    const user = useAuth();
-    
+    const { user } = useAuth()
+
     return (
         <nav className="buttons">
             <ul className="nav-ul">
@@ -18,5 +18,6 @@ const NavBar = () => {
         </nav>
     );
 }
+
 
 export default NavBar;

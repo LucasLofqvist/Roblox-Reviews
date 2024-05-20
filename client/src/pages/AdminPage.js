@@ -18,20 +18,12 @@ const AdminDashboard = () => {
     const fetchUsers = async () => {
         try {
             const allUsers = await authFetchRouter("api/users");
-
-            console.log(allUsers);
-
-            if (allUsers.message !== "Unauthorized"){
-                //Only users with role User
+            
+            //Only users with role User
             setUsers(allUsers.filter(user => user.role === "User"));
 
             //Only users with role Banned
             setBannedUsers(allUsers.filter(user => user.role === "Banned"));
-            console.log(bannedUsers);
-            }
-            else {
-                console.error(allUsers.message);
-            }
             
         } catch (error) {
             console.error(error.message);

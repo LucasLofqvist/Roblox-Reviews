@@ -8,7 +8,7 @@ const Footer = () => {
             <hr />
             <div className="footer-content">
                 <div>
-                    <p className="footer-name"> © 2024 Play Safe on Roblox, Inc. </p>
+                    <p className="footer-name"> © 2024 PlaySafe on Roblox, Inc. </p>
                 </div>
                 <div className="footer-icons">
                 <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><span className="fa-brands fa-facebook"></span></Link>

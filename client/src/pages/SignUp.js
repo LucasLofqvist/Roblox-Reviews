@@ -71,24 +71,30 @@ function Signup() {
             <form className="signup-form" onSubmit={handleSubmit}>
                 <label>
                     Username:
-                    <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                    <input type="text" placeholder="Username" value={username} 
+                    maxLength={15}
+                    onChange={(e) => setUsername(e.target.value)} required />
                 </label>
                 <label>
                     Birth Year:
-                    <input type="number" placeholder="YYYY" value={birthYear} onChange={(e) => setBirthYear(e.target.value)} required />
+                    <input type="number" placeholder="YYYY" value={birthYear} 
+                    onChange={(e) => setBirthYear(e.target.value)} required />
                 </label>
                 <label>
                     Email:
-                    <input type="email" placeholder="xxx@xxx.com "value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <input type="email" placeholder="xxx@xxx.com "value={email} 
+                    onChange={(e) => setEmail(e.target.value)} required />
                 </label>
                 <label>
                     Password:
-                    <input type="password"  value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <input type="password"  value={password} 
+                    onChange={(e) => setPassword(e.target.value)} required />
                 </label>
                 <button type="submit">Sign Up</button>
                 {error && <p className="error-message">{error}</p>}
             </form>
-            <p>Already have an account? <button className='signInPage' onClick={() => navigate('/login')}>Login</button></p>
+            <p>Already have an account? <button className='signInPage' 
+                onClick={() => navigate('/login')}>Login</button></p>
             </div>
         </div>
     );

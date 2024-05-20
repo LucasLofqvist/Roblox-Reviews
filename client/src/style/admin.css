@@ -3,5 +3,37 @@
     padding: 0;
     margin: 0 3%;
     height: calc(100vh - 100px);
-    border: 1px solid yellow;
+
+    justify-content: space-around;
+}
+.list-of-users {
+    list-style-type: none;
+    padding: 0;
+}
+
+.users {
+    display: flex;
+    border: 1px solid black;
+}
+
+.ban-button {
+    margin-left: auto;
+    background-color: rgb(252, 99, 99);
+    border-radius: 5px;
+}
+
+.list-of-banned-users {
+    list-style-type: none;
+    padding: 0;
+}
+
+.banned-users {
+    display: flex;
+    border: 1px solid black;
+}
+
+.unban-button {
+    margin-left: auto;
+    background-color: rgb(100, 244, 100);
+    border-radius: 5px;
 }

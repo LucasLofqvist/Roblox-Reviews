@@ -88,11 +88,7 @@ export const AuthProvider = ({ children }) => {
                 setUser({ username, role: userRole });
                 setLogoutTimer(response.token);
 
-                if( userRole === 'Moderator'){
-                    navigate('/admin');
-                } else {
-                    postAuthRedirect();
-                }
+                postAuthRedirect();
             } else {
                 throw new Error(response.message || 'Login failed');
             }

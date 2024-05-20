@@ -39,8 +39,7 @@ export const ReviewsDisplay = ({ gameId, gameTitle }) => {
             navigate(`/login`);
         } else {
             try {
-                const reviewsData = await FetchRouter(`api/reviews/${gameId}`);
-                const hasReviewed = reviewsData[0]?.reviews.some(review => review.user.username === user.username);
+                const hasReviewed = reviews.some(review => review.user.username === user.username);
 
                 if (hasReviewed) {
                     alert('You have already submitted a review for this game!');

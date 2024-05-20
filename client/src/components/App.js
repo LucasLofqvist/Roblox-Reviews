@@ -11,6 +11,7 @@ import AddReviewForm from '../pages/AddReviewForm';
 import About from '../pages/aboutUsPage'
 import NotFoundPage from '../pages/NotFoundPage';
 import AdminDashboard from '../pages/AdminPage';
+import ProtectedRoute from './ProtectedRoute';
 
 const App = () => {
     return (
@@ -27,7 +28,7 @@ const App = () => {
                             <Route path="/login" element= { <Login />} />
                             <Route path="/about" element= { <About />} />
                             <Route path="/404" element={<NotFoundPage />} />
-                            <Route path="/admin" element={<AdminDashboard />} />
+                            <ProtectedRoute path="/admin" component={AdminDashboard} allowedRoles={['Moderator']} />
                         </Routes>
                     </Layout>
                 </AuthProvider>  

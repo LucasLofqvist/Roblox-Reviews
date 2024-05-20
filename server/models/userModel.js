@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     email: {type: String, required: true},
     password: {type: String, required: true},
     createdAt: {type: Date, required: true},
-    role: {type: String, required: true, enum: ["User", "Moderator", "Owner"]}
+    role: {type: String, required: true, enum: ["User", "Moderator", "Banned"]}
 }, {collection: "users"});
 
 export default mongoose.model("Users", userSchema);

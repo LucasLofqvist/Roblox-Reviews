@@ -12,7 +12,7 @@ const NavBar = () => {
                 <li className="nav-li"><Link to="/"> Home </Link></li>
                 <li className="nav-li"><Link to="/gameList">Games </Link></li>
                 { user && user.role === 'Moderator' &&  (
-                    <li className="nav-li"><Link to="/admin">AdminDashboard</Link></li>
+                    <li className="nav-li"><Link to="/admin">Admin</Link></li>
                 )}
                 <li className="about"><Link to="/about">About us </Link></li>
             </ul>

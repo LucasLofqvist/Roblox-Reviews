@@ -1,7 +1,6 @@
 import React from 'react';
 import FetchReviewStats from './FetchReviewStates';
-import { Link } from 'react-router-dom'; // Import Link from React Router
-
+import { Link } from 'react-router-dom'; 
 const GameCard = ({ game, isAdmin }) => {
     return (
         <div className="game-card">

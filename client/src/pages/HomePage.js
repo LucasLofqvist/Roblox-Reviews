@@ -120,7 +120,7 @@ const HomePage = () => {
                     <h3>New games</h3>
                     <div className='new-games'>
                         {newGames.map((game, index) => (
-                            <article className="feed">• {game.title} - {minText(game.description, 80)}</article>
+                            <article key={index} className="feed">• {game.title} - {minText(game.description, 80)}</article>
                         ))}
                     </div>
                 </div>

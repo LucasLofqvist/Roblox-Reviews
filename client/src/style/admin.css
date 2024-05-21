@@ -1,17 +1,27 @@
 .admin-page {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+
     padding: 0;
     margin: 0 3%;
     min-height: calc(100vh - 100px);
-
-    border: 1px solid red;
-
-    justify-content: space-around;
 }
 
 .stat-list {
-    border: 1px solid black
+    padding: 20px;
+    margin: 5px;
+    border: 1px solid black;
+    height: 100px;
+}
+
+.lists-wrapper {
+    display: flex;
+    padding: 20px;
+    margin: 5px;
+
+    -webkit-box-shadow: 3px 5px 26px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 5px 26px -9px rgba(0,0,0,0.75);
+    box-shadow: 3px 5px 26px -9px rgba(0,0,0,0.75);
 }
 
 .user-list-container{
@@ -27,6 +37,8 @@
 .users {
     display: flex;
     border: 1px solid black;
+    margin: 5px auto;
+    min-height: 22.5px;
 }
 
 .ban-button {
@@ -44,6 +56,8 @@
 .banned-users {
     display: flex;
     border: 1px solid black;
+    margin: 5px;
+    min-height: 22.5px;
 }
 
 .unban-button {

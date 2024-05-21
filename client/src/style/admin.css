@@ -1,12 +1,25 @@
 .admin-page {
     display: flex;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0 3%;
-    height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
+
+    border: 1px solid red;
 
     justify-content: space-around;
 }
+
+.stat-list {
+    border: 1px solid black
+}
+
+.user-list-container{
+    margin-left: auto;
+}
+
 .list-of-users {
+    width: 175px;
     list-style-type: none;
     padding: 0;
 }
@@ -23,6 +36,7 @@
 }
 
 .list-of-banned-users {
+    width: 175px;
     list-style-type: none;
     padding: 0;
 }

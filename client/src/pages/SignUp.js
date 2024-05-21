@@ -15,8 +15,8 @@ function Signup() {
         event.preventDefault();
 
         const currentYear = new Date().getFullYear();
-        const minBirthYear = currentYear - 13; // No younger than 13
-        const maxBirthYear = currentYear - 120; // No older than 120 years
+        const minBirthYear = currentYear - 13;
+        const maxBirthYear = currentYear - 120;
 
         if (birthYear < maxBirthYear || birthYear > minBirthYear) {
             setError('Birth year must be valid. You must be at least 13 years old.');
@@ -48,18 +48,13 @@ function Signup() {
             
             if (data.success) {
                 alert("Account created successfully!")
-                navigate('/login'); // Redirect to login page after successful signup
-            }
-            //Handles duplicate index errors
-            else if(data.error.startsWith("E11000")) {
+                navigate('/login'); 
+            } else if(data.error.startsWith("E11000")) {
                 setError("This username already exists");
-            }
-            //Other errors are logged
-            else {
+            } else {
                 setError('Failed to create account');
                 console.error(data.error);
-            }
-            } catch (err) {
+            }} catch (err) {
                 console.error(err);
             }
         };
@@ -71,27 +66,33 @@ function Signup() {
             <form className="signup-form" onSubmit={handleSubmit}>
                 <label>
                     Username:
-                    <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                    <input type="text" placeholder="Username" value={username} 
+                    maxLength={15}
+                    onChange={(e) => setUsername(e.target.value)} required />
                 </label>
                 <label>
                     Birth Year:
-                    <input type="number" placeholder="YYYY" value={birthYear} onChange={(e) => setBirthYear(e.target.value)} required />
+                    <input type="number" placeholder="YYYY" value={birthYear} 
+                    onChange={(e) => setBirthYear(e.target.value)} required />
                 </label>
                 <label>
                     Email:
-                    <input type="email" placeholder="xxx@xxx.com "value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <input type="email" placeholder="xxx@xxx.com "value={email} 
+                    onChange={(e) => setEmail(e.target.value)} required />
                 </label>
                 <label>
                     Password:
-                    <input type="password"  value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <input type="password"  value={password} 
+                    onChange={(e) => setPassword(e.target.value)} required />
                 </label>
                 <button type="submit">Sign Up</button>
                 {error && <p className="error-message">{error}</p>}
             </form>
-            <p>Already have an account? <button className='signInPage' onClick={() => navigate('/login')}>Login</button></p>
+            <p>Already have an account? <button className='signInPage' 
+                onClick={() => navigate('/login')}>Login</button></p>
             </div>
         </div>
     );
-    }
+}
 
     export default Signup;

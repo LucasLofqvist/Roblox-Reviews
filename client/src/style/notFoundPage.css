@@ -1,8 +1,8 @@
-/* src/style/notFoundPage.css */
 .not-found-page {
     text-align: center;
+    justify-content: center;
     margin-top: 50px;
-    padding: 20px;
+    margin: 0 3%;
     height: calc(100vh - 100px);
 }
 
@@ -27,9 +27,15 @@
 }
 
 .not-found-image {
-    max-width: calc(100% - 100px); 
-    max-height: 400px; 
-    width: auto;
-    height: auto;
-    margin-bottom: 20px;
+    background: transparent;
+    width: 500px;
+    height: 500px;
+    clip-path: inset(50px 50px 50px 50px); /* top right bottom left */
+}
+
+@media (max-width: 768px) {
+    .not-found-image {
+        width: 375px;
+        height: 375px;
+    }
 }

@@ -13,27 +13,25 @@ export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const isTokenExpired = (token) => {
-        try{
-            const exp = jwtDecode(token);
-            if (Date.now() >= exp * 1000) {
-                return true;
-            }
-            return false;
-        }catch(err){
+        try {
+            const { exp } = jwtDecode(token);
+            return Date.now() >= exp * 1000;
+        } catch (err) {
             return false;
         }
-    }
+    };
+
     const setLogoutTimer = useCallback((token) => {
         const { exp } = jwtDecode(token);
-        const expTime = exp * 1000 - Date.now()
-        setTimeout( () => logout(), expTime)
+        const expTime = exp * 1000 - Date.now();
+        setTimeout(() => logout(), expTime);
     }, []);
 
     useEffect(() => {
         const token = sessionStorage.getItem('token');
         const userDetails = sessionStorage.getItem('userDetails');
 
-        if (token && !isTokenExpired) {
+        if (token && !isTokenExpired(token)) {
             setIsLoggedIn(true);
             if (userDetails) {
                 setUser(JSON.parse(userDetails));
@@ -79,10 +77,12 @@ export const AuthProvider = ({ children }) => {
                 body: JSON.stringify({ username, password }),
             });
             if (response.token) {
+                const decodeToken = jwtDecode(response.token);
+                const userRole = decodeToken.role;
                 sessionStorage.setItem('token', response.token);
-                sessionStorage.setItem('userDetails', JSON.stringify({ username }));
+                sessionStorage.setItem('userDetails', JSON.stringify({ username, role: userRole }));
                 setIsLoggedIn(true);
-                setUser({ username });
+                setUser({ username, role: userRole });
                 setLogoutTimer(response.token);
                 postAuthRedirect();
             } else {
@@ -96,7 +96,7 @@ export const AuthProvider = ({ children }) => {
     
     const logout = () => {
         sessionStorage.removeItem('token');
-        sessionStorage.removeItem('userDetails')
+        sessionStorage.removeItem('userDetails');
         setIsLoggedIn(false);
         setUser(null);
         navigate('/');

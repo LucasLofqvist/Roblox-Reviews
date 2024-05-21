@@ -5,7 +5,7 @@
     }
 
     .game-card {
-        flex: 1 1 calc(50% - 20px); /* Adjust for 2 columns on medium screens */
+        flex: 1 1 calc(50% - 20px);
     }
 }
 
@@ -26,6 +26,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 *,
@@ -49,7 +50,6 @@ body {
 
 .search-container {
     display: flex;
-    flex-grow: 0.5;
     justify-content: center;
 }
 
@@ -70,16 +70,16 @@ body {
 
 .search-container button {
     margin-left: 10px;
-    height: 35px; /* Set a specific height */
-    padding: 0 10px; /* Adjust padding */
-    line-height: 35px; /* Set line-height to match button height */
+    height: 35px;
+    padding: 0 10px;
+    line-height: 35px;
     color: #0c0c0c;
     cursor: pointer;
     background: none;
     border: none;
-    display: flex; /* Flexbox for centering the icon */
-    align-items: center; /* Center the icon vertically */
-    justify-content: center; /* Center the icon horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .login {
@@ -98,6 +98,7 @@ button.signInButton {
     font-size: 15px;
     transition: background-color 0.3s ease;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 button.loggedIn {
@@ -122,20 +123,32 @@ button.loggedIn:hover {
 
 @media (max-width: 768px) {
     .header {
-        flex-direction: column;
         align-items: center;
         margin-bottom: 10px;
     }
 
     .search-container {
         margin: 10px 0;
-        margin-left: 40px;
+        margin-left: 25px;
+    }
+
+    .search-container input:focus {
+        width: 165px;
     }
 
     .login {
         flex-direction: row;
         justify-content: center;
     }
+
+    button.loginButton,
+    button.signInButton {
+    color: white;
+    text-decoration: none;
+    padding: 3px 6px;
+    margin-left: 5px;
+    font-size: 12px;
+}
     
     .login button {
         margin-left: 5px;
@@ -144,9 +157,15 @@ button.loggedIn:hover {
     button.loggedIn {
         margin-left: 0;
     }
+
+    .psicon {
+        width: 40px;
+        height: 40px;
+        float: left;
+    }
 }
 
-ul {
+.nav-ul {
     list-style-type: none;
     margin: 3%;
     padding: 0;
@@ -154,7 +173,7 @@ ul {
     background-color: #333;
 }
 
-li {
+.nav-li {
     float: left;
 }
 

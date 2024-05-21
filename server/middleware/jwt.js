@@ -77,6 +77,9 @@ export async function authenticate(req, res, next) {
 
     const user = await authenticateUser(username, password);
     if(user) {
+        if(user.role === "Banned"){
+            return res.status(403).json({message: `${user.username} is suspended!`});
+        }
         req.user = user;
         next();
     } else {

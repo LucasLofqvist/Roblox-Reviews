@@ -28,32 +28,23 @@ export const ReviewsDisplay = ({ gameId, gameTitle }) => {
         fetchReviews();
     }, [gameId]);
 
-    const handleAddReviewClick = async () => {
-        const token = sessionStorage.getItem('token');
+    const handleAddReviewClick = () => {
         sessionStorage.setItem('gameTitle', gameTitle);
         sessionStorage.setItem('gameId', gameId);
 
-        if (!user || !token) {
+        if (!user) {
             sessionStorage.setItem('preLoginRoute', `/games/${gameId}/add-review`);
             alert('Please log in to post a review!');
             navigate(`/login`);
         } else {
-            try {
-                const reviewsData = await FetchRouter(`api/reviews/${gameId}`);
-                const hasReviewed = reviewsData[0]?.reviews.some(review => review.user.username === user.username);
-
+                const hasReviewed = reviews.some(review => review.user.username === user.username);
                 if (hasReviewed) {
                     alert('You have already submitted a review for this game!');
                 } else {
                     navigate(`/games/${gameId}/add-review`);
                 }
-            } catch (error) {
-                console.error('Error checking reviews:', error);
-                alert('An error occurred while checking your review status!');
-                navigate(`/games/${gameId}`);
-            }
+            };
         }
-    };
 
     const currentYear = new Date().getFullYear();
     
@@ -66,7 +57,10 @@ export const ReviewsDisplay = ({ gameId, gameTitle }) => {
             </h3>
             {reviews.length ? reviews.map((review, index) => (
                 <div key={index} className="review-card">
-                    <h4>{review.user.username}   {currentYear - review.user.birthYear}</h4>
+                    <div className="user-details">
+                        <h4 className="user-name">{review.user.username}</h4>
+                        <h4 className="user-age">Age: {currentYear - review.user.birthYear}</h4>
+                    </div>
                     <p className="review-text">{review.reviewText}</p>
                     <div className="review-details">
                         <span className={`violence-indicator ${review.violence ? 'violence-yes' : 'violence-no'}`}>Violence: {review.violence ? 'Yes' : 'No'}</span>

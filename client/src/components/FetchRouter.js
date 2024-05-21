@@ -11,12 +11,12 @@ export const FetchRouter = async (url, options = {}) => {
 };
 
 export const authFetchRouter = async (url, options = {}) => {
-    const token = sessionStorage.getItem('token');  // Retrieve the stored JWT
+    const token = sessionStorage.getItem('token'); 
     const headers = {
         ...options.headers,
-        'authorization': `Bearer ${token}`,  // Append the JWT as a Bearer token
+        'authorization': `Bearer ${token}`, 
     };
-    return FetchRouter(url, { ...options, headers });  // Call FetchRouter with the updated headers
+    return FetchRouter(url, { ...options, headers });  
 };
 
 

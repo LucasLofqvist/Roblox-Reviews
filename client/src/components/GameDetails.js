@@ -41,8 +41,9 @@ const GameDetails = () => {
                         <img src={game.thumbnailUrl} alt={game.title} className="game-details-image" />
                     </div>
                     <p className='gameDesc'>{game.description}</p>
-                    {game.gameUrl && <button onClick={() => window.open(game.gameUrl, "_blank")} className="game-link-button">Play Now</button>}
-                
+                    <div className='button-container'>
+                        {game.gameUrl && <button onClick={() => window.open(game.gameUrl, "_blank")} className="game-link-button">Play Now</button>}
+                    </div>
                     <ReviewsDisplay gameId={game._id} gameTitle={gameId} />
                     
                 </> 

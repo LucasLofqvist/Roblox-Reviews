@@ -1,0 +1,68 @@
+.admin-page {
+    margin: 0 3%;body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+}
+
+.stat-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.stat-table th, .stat-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.stat-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.userlist-container, .banlist-container {
+    margin-bottom: 20px;
+}
+
+.list-of-users, .list-of-banned-users {
+    list-style-type: none;
+    padding: 0;
+}
+
+.users, .banned-users {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ban-button, .unban-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.unban-button {
+    background-color: #333;
+}
+
+.users:hover, 
+.banned-users:hover {
+    background-color: rgba(201, 198, 198, 0.726);
+}
+
+.ban-button:hover {
+    opacity: 0.8;
+    background-color: #bb0e0eea;
+    transition: 0.3s ease-in-out;
+}
+
+.unban-button:hover {
+    opacity: 0.8;
+    background-color: #15c915c4;
+    transition: 0.3s ease-in-out;
+}

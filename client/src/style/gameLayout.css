@@ -1,28 +1,29 @@
-/* Game List and Card Styles */
 .games-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 50px;
-    width: calc(100% - 100px);
+    margin: 10px auto;
+    width: 94%;
     padding: 0;
 }
 
 .game-card {
-    flex: 1 1 calc(25% - 20px); /* Adjust the flex-basis to account for any margins */
+    flex: 1 1 calc(25% - 20px);
     margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border: 1px solid #ccc;
-    padding: 20px;
+    /* border: 1px solid #ccc; */
+    -webkit-box-shadow: 3px 5px 26px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 5px 26px -9px rgba(0,0,0,0.75);
+    box-shadow: 3px 5px 26px -9px rgba(0,0,0,0.75);
     border-radius: 8px;
     box-sizing: border-box;
 }
 
 .game-image-wrapper {
     width: 100%;
+    border-radius: 8px 8px 0 0;
     height: auto;
     overflow: hidden;
     display: flex;
@@ -42,7 +43,7 @@
 }
 
 .game-title {
-    margin-top: 10px;
+    margin: 5px 2px 2px 0;
     text-align: center;
 }
 
@@ -50,28 +51,8 @@
     text-align: center;
 }
 
-.game-stats {
-    margin-top: 10px;
-}
-
 .game-details {
     margin: 0 3%;
-}
-
-.go-back-button {
-    margin: 20px 0;
-    margin-left: 50px;
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.go-back-button:hover, .game-link-button:hover {
-    background-color: #111;
-    color: #ffffff;
 }
 
 .game-details-image-wrapper {
@@ -87,7 +68,6 @@
     max-width: 500px;
     height: auto;
     object-fit: cover;
-
 }
 
 .gameDesc {
@@ -95,10 +75,15 @@
     text-align: center;
 }
 
-.game-link-button {
+.button-container {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.game-link-button {
+    display: flex;
+    justify-content: center;
     margin: 0;
     background-color: #333;
     color: white;
@@ -106,8 +91,9 @@
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
 }
 
-.game-details .game-link-button {
-    justify-content: center;
+.game-button {
+    border: none;
 }

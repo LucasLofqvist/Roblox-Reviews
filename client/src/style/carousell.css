@@ -7,13 +7,15 @@
     max-width: 48rem;
     margin: 0 auto;
     overflow: hidden;
+    -webkit-box-shadow: 3px 5px 26px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 5px 26px -9px rgba(0,0,0,0.75);
+    box-shadow: 3px 5px 26px -9px rgba(0,0,0,0.75);
 }
 
 .slider {
     position: relative;
     display: flex;
     width: 100%;
-    transition: transform 0.5s ease;
 }
 
 .slide {
@@ -45,6 +47,7 @@
 .slider img {
     width: 100%;
     object-fit: contain;
+    display: block;
 }
 
 .slider-nav {

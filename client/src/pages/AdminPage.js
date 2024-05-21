@@ -63,15 +63,15 @@ const AdminDashboard = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Number of users</td>
+                        <td>Active users</td>
                         <td>{users.length}</td>
                     </tr>
                     <tr>
-                        <td>Number of banned users</td>
+                        <td>Banned users</td>
                         <td>{bannedUsers.length}</td>
                     </tr>
                     <tr>
-                        <td>Number of new users</td>
+                        <td>New users</td>
                         <td>{newUsers.length}</td>
                     </tr>
                 </tbody>

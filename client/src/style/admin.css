@@ -58,9 +58,11 @@
 .ban-button:hover {
     opacity: 0.8;
     background-color: #bb0e0eea;
+    transition: 0.3s ease-in-out;
 }
 
 .unban-button:hover {
     opacity: 0.8;
     background-color: #15c915c4;
+    transition: 0.3s ease-in-out;
 }

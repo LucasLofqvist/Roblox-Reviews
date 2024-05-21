@@ -28,31 +28,22 @@ export const ReviewsDisplay = ({ gameId, gameTitle }) => {
         fetchReviews();
     }, [gameId]);
 
-    const handleAddReviewClick = async () => {
-        const token = sessionStorage.getItem('token');
+    const handleAddReviewClick = () => {
         sessionStorage.setItem('gameTitle', gameTitle);
         sessionStorage.setItem('gameId', gameId);
 
-        if (!user || !token) {
+        if (!user) {
             sessionStorage.setItem('preLoginRoute', `/games/${gameId}/add-review`);
             alert('Please log in to post a review!');
-            navigate(`/login`);
         } else {
-            try {
                 const hasReviewed = reviews.some(review => review.user.username === user.username);
-
                 if (hasReviewed) {
                     alert('You have already submitted a review for this game!');
                 } else {
                     navigate(`/games/${gameId}/add-review`);
                 }
-            } catch (error) {
-                console.error('Error checking reviews:', error);
-                alert('An error occurred while checking your review status!');
-                navigate(`/games/${gameId}`);
-            }
+            };
         }
-    };
 
     const currentYear = new Date().getFullYear();
     

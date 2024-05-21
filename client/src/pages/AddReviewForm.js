@@ -22,13 +22,13 @@ const AddReviewForm = () => {
             console.warn('gameTitle is not in sessionStorage');
         } else {
             console.log('gameTitle: ' + gameTitle);
-            sessionStorage.setItem('gameTitle', gameTitle);  // Ensure gameTitle is set in sessionStorage
+            sessionStorage.setItem('gameTitle', gameTitle);
         }
     }, [gameTitle]);
 
     useEffect(() => {
         return () => {
-            sessionStorage.removeItem('gameTitle');  // Clean up sessionStorage when component unmounts
+            sessionStorage.removeItem('gameTitle');
         };
     }, []);
 

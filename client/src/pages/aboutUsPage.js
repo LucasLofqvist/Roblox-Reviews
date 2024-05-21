@@ -4,7 +4,7 @@ import imgLucas from '../img/Lucas.jpg'
 import imgFred from '../img/Fred.jpg'
 import imgBeilan from '../img/Beilan.jpg'
 
-const aboutUsPage = () => {
+const AboutUsPage = () => {
 
 return (
     <div className="aboutUsInfo">
@@ -66,4 +66,4 @@ return (
 )
 }
 
-export default aboutUsPage;
+export default AboutUsPage;

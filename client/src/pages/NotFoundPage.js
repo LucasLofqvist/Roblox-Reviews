@@ -1,4 +1,3 @@
-// src/components/NotFoundPage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import notFoundImage from '../img/notFound.jpg';

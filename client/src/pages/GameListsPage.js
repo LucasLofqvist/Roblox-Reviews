@@ -1,7 +1,6 @@
-// GameListsPage.js
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import GamesList from '../components/GamesList';
 import {FetchRouter} from '../components/FetchRouter';
 import '../style/gameLayout.css';
@@ -11,8 +10,7 @@ const GameListsPage = () => {
     const [games, setGames] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [searchParams] = useSearchParams(); // New Hook to get URL search params
-
+    const [searchParams] = useSearchParams();
     useEffect(() => {
         const fetchGames = async () => {
             try {

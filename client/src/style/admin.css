@@ -1,53 +1,68 @@
 .admin-page {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0 3%;
-    min-height: calc(100vh - 100px);
-
-    border: 1px solid red;
-
-    justify-content: space-around;
+    margin: 0 3%;body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
 }
 
-.stat-list {
-    border: 1px solid black
+.stat-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
-.user-list-container{
-    margin-left: auto;
+.stat-table th, .stat-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
 
-.list-of-users {
-    width: 175px;
+.stat-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.userlist-container, .banlist-container {
+    margin-bottom: 20px;
+}
+
+.list-of-users, .list-of-banned-users {
     list-style-type: none;
     padding: 0;
 }
 
-.users {
+.users, .banned-users {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
     display: flex;
-    border: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.ban-button {
-    margin-left: auto;
-    background-color: rgb(252, 99, 99);
-    border-radius: 5px;
-}
-
-.list-of-banned-users {
-    width: 175px;
-    list-style-type: none;
-    padding: 0;
-}
-
-.banned-users {
-    display: flex;
-    border: 1px solid black;
+.ban-button, .unban-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
 }
 
 .unban-button {
-    margin-left: auto;
-    background-color: rgb(100, 244, 100);
-    border-radius: 5px;
+    background-color: #333;
+}
+
+.users:hover, 
+.banned-users:hover {
+    background-color: rgba(201, 198, 198, 0.726);
+}
+
+.ban-button:hover {
+    opacity: 0.8;
+    background-color: #bb0e0eea;
+    transition: 0.3s ease-in-out;
+}
+
+.unban-button:hover {
+    opacity: 0.8;
+    background-color: #15c915c4;
+    transition: 0.3s ease-in-out;
 }

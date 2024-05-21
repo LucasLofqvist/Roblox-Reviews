@@ -19,10 +19,10 @@ const AdminDashboard = () => {
             setUsers(allUsers.filter(user => user.role === "User"));
             setBannedUsers(allUsers.filter(user => user.role === "Banned"));
 
-            //Set users that has been created within three months
+            //Set users that has been created within the month
             const today = new Date();
             const threeMonthsAgo = new Date(today);
-            threeMonthsAgo.setMonth(today.getMonth() - 3);
+            threeMonthsAgo.setMonth(today.getMonth() - 1);
 
             const recentUsers = [];
             for (let index = 0; index < allUsers.length; index++) {
@@ -52,18 +52,39 @@ const AdminDashboard = () => {
         console.log(response.message);
     }
 
-    return(
+    return (
         <div className="admin-page">
-            <ul className="stat-list">
-                <li>Number of users: {users.length}</li>
-                <li>Number of banned users: {bannedUsers.length}</li>
-                <li>Number of new users: {newUsers.length}</li>
-            </ul>
+            <table className="stat-table">
+                <thead>
+                    <tr>
+                        <th>Statistic</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Active users</td>
+                        <td>{users.length}</td>
+                    </tr>
+                    <tr>
+                        <td>Banned users</td>
+                        <td>{bannedUsers.length}</td>
+                    </tr>
+                    <tr>
+                        <td>New users</td>
+                        <td>{newUsers.length}</td>
+                    </tr>
+                </tbody>
+            </table>
+    
             <div className="userlist-container">
                 <h2>Active Users</h2>
                 <ol className="list-of-users">
                     {users.map(user => (
-                        <li className="users" key={user.username}> {user.username} <button onClick={() => {toggleSuspension(user.username)}} className='ban-button'>BAN</button> </li>
+                        <li className="users" key={user.username}>
+                            {user.username} 
+                            <button onClick={() => {toggleSuspension(user.username)}} className='ban-button'>BAN</button>
+                        </li>
                     ))}
                 </ol>
             </div>
@@ -72,12 +93,15 @@ const AdminDashboard = () => {
                 <h2>Banned Users</h2>
                 <ol className="list-of-banned-users">
                     {bannedUsers.map(bannedUser => (
-                        <li className="banned-users" key={bannedUser.username}> {bannedUser.username} <button onClick={() => {toggleSuspension(bannedUser.username)}} className='unban-button'>UNBAN</button></li>
+                        <li className="banned-users" key={bannedUser.username}>
+                            {bannedUser.username}
+                            <button onClick={() => {toggleSuspension(bannedUser.username)}} className='unban-button'>UNBAN</button>
+                        </li>
                     ))}
                 </ol>
             </div>
         </div>
-    )
+    );
 }
 
 export default AdminDashboard

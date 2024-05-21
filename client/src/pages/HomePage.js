@@ -43,8 +43,8 @@ const HomePage = () => {
         const intervalId = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % (totalSlides + 1));
             setIsTransitioning(true);
-        }, 10000); // Change the interval to 3000ms (3 seconds)
-
+        }, 10000);
+        
         return () => clearInterval(intervalId);
     }, [totalSlides]);
 
@@ -53,7 +53,7 @@ const HomePage = () => {
             setTimeout(() => {
                 setIsTransitioning(false);
                 setCurrentIndex(0);
-            }, 500); // Duration of the transition
+            }, 500);
         }
     }, [currentIndex, totalSlides]);
 

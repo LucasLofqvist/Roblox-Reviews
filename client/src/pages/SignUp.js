@@ -15,8 +15,8 @@ function Signup() {
         event.preventDefault();
 
         const currentYear = new Date().getFullYear();
-        const minBirthYear = currentYear - 13; // No younger than 13
-        const maxBirthYear = currentYear - 120; // No older than 120 years
+        const minBirthYear = currentYear - 13;
+        const maxBirthYear = currentYear - 120;
 
         if (birthYear < maxBirthYear || birthYear > minBirthYear) {
             setError('Birth year must be valid. You must be at least 13 years old.');
@@ -48,18 +48,13 @@ function Signup() {
             
             if (data.success) {
                 alert("Account created successfully!")
-                navigate('/login'); // Redirect to login page after successful signup
-            }
-            //Handles duplicate index errors
-            else if(data.error.startsWith("E11000")) {
+                navigate('/login'); 
+            } else if(data.error.startsWith("E11000")) {
                 setError("This username already exists");
-            }
-            //Other errors are logged
-            else {
+            } else {
                 setError('Failed to create account');
                 console.error(data.error);
-            }
-            } catch (err) {
+            }} catch (err) {
                 console.error(err);
             }
         };
@@ -98,6 +93,6 @@ function Signup() {
             </div>
         </div>
     );
-    }
+}
 
     export default Signup;

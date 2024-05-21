@@ -8,7 +8,7 @@ import Signup from '../pages/SignUp';
 import Login from '../pages/Login';
 import HomePage from '../pages/HomePage';
 import AddReviewForm from '../pages/AddReviewForm';
-import AboutUsPage from '../pages/AboutUsPage'
+import AboutUsPage from '../pages/aboutUsPage'
 import NotFoundPage from '../pages/NotFoundPage';
 import AdminDashboard from '../pages/AdminPage';
 import ProtectedRoute from './ProtectedRoute';

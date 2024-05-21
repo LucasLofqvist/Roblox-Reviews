@@ -35,6 +35,7 @@ export const ReviewsDisplay = ({ gameId, gameTitle }) => {
         if (!user) {
             sessionStorage.setItem('preLoginRoute', `/games/${gameId}/add-review`);
             alert('Please log in to post a review!');
+            navigate(`/login`);
         } else {
                 const hasReviewed = reviews.some(review => review.user.username === user.username);
                 if (hasReviewed) {

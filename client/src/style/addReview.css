@@ -3,10 +3,10 @@
     display: flex;
     justify-content: center;
     align-items: flex-start; 
-    height: calc(100vh - 100px);
     width: 100vw; 
     padding-top: 30px;
     box-sizing: border-box; 
+    margin-bottom: 10px;
 }
 
 .review-body {

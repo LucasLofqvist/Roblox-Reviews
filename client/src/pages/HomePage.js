@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
     const [games, setGames] = useState([]);
+    const [newGames, setNewGames] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,6 +28,7 @@ const HomePage = () => {
                 });
                 const sortedGames = gamesWithAverageRating.sort((a, b) => b.averageRating - a.averageRating);
                 setGames(sortedGames.slice(0, 3)); // Slice the top 3 games and set them
+                setNewGames(games.slice(0, 2));
                 setLoading(false);
             } catch (err) {
                 setError(err.message);
@@ -57,6 +59,13 @@ const HomePage = () => {
         }
     }, [currentIndex, totalSlides]);
 
+    const minText = (text, maxLength) => {
+        if (text.length <= maxLength) {
+            return text;
+        }
+        return text.slice(0,maxLength) + '...';
+    }
+
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
@@ -75,7 +84,7 @@ const HomePage = () => {
                         {games.map((game, index) => (
                             <div key={index} className="slide">
                                 <h2>{game.title}</h2>
-                                <h4>{game.description}</h4>
+                                <h4>{minText(game.description, 105)}</h4>
                                 <Link to={`/games/${encodeURIComponent(game.title)}`}><img src={game.thumbnailUrl} alt={game.title} />
                                 </Link>
                             </div>
@@ -103,11 +112,17 @@ const HomePage = () => {
                 <h3>News</h3>
                 <div className="news">
                     <h3>Patch 14.01.03</h3>
-                    <article className="feed">New patch coming 2024-06-01</article>
+                    <article className="feed">New patch coming 2024-06-01:
+                    Bug Fixes: Resolved several issues causing game crashes.
+                    New Map: Explore the mystic forests of Eldoria.</article>
                 </div>
                 <div className="news">
                     <h3>New games</h3>
-                    <article className="feed">New games: Lucky blox, Dress To Impress</article>
+                    <div className='new-games'>
+                        {newGames.map((game, index) => (
+                            <article className="feed">• {game.title} - {minText(game.description, 80)}</article>
+                        ))}
+                    </div>
                 </div>
             </section>
         </div>

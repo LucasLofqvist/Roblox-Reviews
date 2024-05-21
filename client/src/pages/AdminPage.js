@@ -3,6 +3,7 @@ import { FetchRouter, authFetchRouter } from '../components/FetchRouter';
 import '../style/admin.css';
 
 const AdminDashboard = () => {
+    const [allUsers, setAllUsers] = useState([]);
     const [users, setUsers] = useState([]);
     const [bannedUsers, setBannedUsers] = useState([]);
     const [newUsers, setNewUsers] = useState([]);
@@ -16,6 +17,7 @@ const AdminDashboard = () => {
         try {
             const allUsers = await authFetchRouter("api/users");
 
+            setAllUsers(allUsers);
             setUsers(allUsers.filter(user => user.role === "User"));
             setBannedUsers(allUsers.filter(user => user.role === "Banned"));
 
@@ -57,11 +59,15 @@ const AdminDashboard = () => {
             <table className="stat-table">
                 <thead>
                     <tr>
-                        <th>Statistic</th>
+                        <th>Statistics</th>
                         <th>Count</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>All users</td>
+                        <td>{allUsers.length}</td>
+                    </tr>
                     <tr>
                         <td>Active users</td>
                         <td>{users.length}</td>
